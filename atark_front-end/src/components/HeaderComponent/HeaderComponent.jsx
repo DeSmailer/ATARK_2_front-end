@@ -76,9 +76,14 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <LinkTab label="Page One" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="Page Two" href="/trash" {...a11yProps(1)} />
-          <LinkTab label="Page Three" href="/spam" {...a11yProps(2)} />
+          <LinkTab label="УЗВ(стан системи)" href="/signUp" {...a11yProps(0)} />
+          <LinkTab label="басейни" href="/trash" {...a11yProps(1)} />
+          <LinkTab label="риба" href="/spam" {...a11yProps(2)} />
+          <LinkTab label="стадо" href="/spam1" {...a11yProps(3)} />
+          <LinkTab label="вид риби" href="/spam1" {...a11yProps(3)} />
+          <LinkTab label="організація" href="/spam1" {...a11yProps(3)} />
+          <LinkTab label="вагітність" href="/spam1" {...a11yProps(3)} />
+          <LinkTab label="дойка" href="/spam1" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -89,6 +94,9 @@ export default function NavTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         Page Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Page Three3
       </TabPanel>
     </div>
   );
