@@ -76,28 +76,25 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <LinkTab label="УЗВ(стан системи)" href="/signUp" {...a11yProps(0)} />
-          <LinkTab label="басейни" href="/trash" {...a11yProps(1)} />
+          <LinkTab label="УЗВ(стан системи)" href="/signIn" {...a11yProps(0)} />
+          <LinkTab label="басейни" href="/signUp" {...a11yProps(1)} />
           <LinkTab label="риба" href="/spam" {...a11yProps(2)} />
           <LinkTab label="стадо" href="/spam1" {...a11yProps(3)} />
-          <LinkTab label="вид риби" href="/spam1" {...a11yProps(3)} />
-          <LinkTab label="організація" href="/spam1" {...a11yProps(3)} />
-          <LinkTab label="вагітність" href="/spam1" {...a11yProps(3)} />
-          <LinkTab label="дойка" href="/spam1" {...a11yProps(3)} />
+          <LinkTab label="вид риби" href="/spam1" {...a11yProps(4)} />
+          <LinkTab label="вагітність" href="/spam1" {...a11yProps(5)} />
+          <LinkTab label="дойка" href="/spam1" {...a11yProps(6)} />
+          <LinkTab label="організація" href="/spam1" {...a11yProps(7)} />
+
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        Page One
+      {/* <TabPanel value={value} index={0}>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Page Two
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Page Three
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Page Three3
-      </TabPanel>
+      </TabPanel> */}
     </div>
   );
 }

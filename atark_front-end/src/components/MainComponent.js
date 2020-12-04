@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import LogIn from './SignInComponent/SignInComponent';
+import SignIn from './SignInComponent/SignInComponent';
 import Header from './HeaderComponent/HeaderComponent';
-import SignUp from './SignUpComponent/SignUpComponent';
+import SignUp from './/SignUpComponent/SignUpComponent';
+import ClosedWaterSupplyInstallation from './ClosedWaterSupplyInstallationComponent/ClosedWaterSupplyInstallationComponent'
+import Fish from './FishComponent/FishComponent'
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 
 class Main extends Component {
@@ -12,9 +13,11 @@ class Main extends Component {
             <div>
                 <Header></Header>
                 <Switch>
-                    <Route path="/home"></Route>
-                    <Route to="/signUp"><SignUp></SignUp></Route>
-                    <Redirect to="/login"><LogIn></LogIn></Redirect>
+                    <Route path="/signUp" component={SignUp}></Route>
+                    <Route path="/signIn" component={SignIn}></Route>
+                    <Route path="/CWSI" component={ClosedWaterSupplyInstallation}></Route>
+                    <Route path="/fish" component={Fish}></Route>
+                    <Redirect to="/signIn" component={SignIn}></Redirect>
                 </Switch>
             </div>
         );
