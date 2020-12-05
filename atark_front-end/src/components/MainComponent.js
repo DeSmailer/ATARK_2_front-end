@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SignIn from './SignInComponent/SignInComponent';
+import LogIn from './LogInComponent/LogInComponent';
 import Header from './HeaderComponent/HeaderComponent';
 import SignUp from './/SignUpComponent/SignUpComponent';
 import ClosedWaterSupplyInstallation from './ClosedWaterSupplyInstallationComponent/ClosedWaterSupplyInstallationComponent'
@@ -14,10 +14,10 @@ class Main extends Component {
                 <Header></Header>
                 <Switch>
                     <Route path="/signUp" component={SignUp}></Route>
-                    <Route path="/signIn" component={SignIn}></Route>
+                    <Route path="/signIn" component={LogIn}></Route>
                     <Route path="/CWSI" component={ClosedWaterSupplyInstallation}></Route>
                     <Route path="/fish" component={Fish}></Route>
-                    <Redirect to="/signIn" component={SignIn}></Redirect>
+                    <Redirect to="/signIn" component={LogIn}></Redirect>
                 </Switch>
             </div>
         );
