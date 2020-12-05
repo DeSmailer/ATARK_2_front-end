@@ -14,15 +14,11 @@ class Fish extends Component {
         { field: 'kindOfFishId', headerName: 'KindOfFishId', width: 160 },
         { field: 'sex', headerName: 'Sex', width: 160 },
         { field: 'dateOfBirth', headerName: 'DateOfBirth', width: 160 },
-        { field: 'PoolNowId', headerName: 'PoolNowId',  width: 160 },
-        { field: 'RelocationPoolId', headerName: 'RelocationPoolId',  width: 160 },
-        { field: 'Weight', headerName: 'Weight',  width: 160 },
-        { field: 'Adulthood', headerName: 'Adulthood',  width: 160 },
-        { field: 'State', headerName: 'State',  width: 160 }
-        /*{ field: 'edit', valueGetter: (params) =>{
-        return (
-            <button value={params.id}>LOL</button>
-        );},width: 160}*/
+        { field: 'poolNowId', headerName: 'PoolNowId',  width: 160 },
+        { field: 'relocationPoolId', headerName: 'RelocationPoolId',  width: 160 },
+        { field: 'weight', headerName: 'Weight',  width: 160 },
+        { field: 'adulthood', headerName: 'Adulthood',  width: 160 },
+        { field: 'state', headerName: 'State',  width: 160 }
       ],
       rows: [
         
@@ -34,8 +30,8 @@ class Fish extends Component {
 
   dataGridDemo(state) {
     return (
-      <div style={{ height: 800, width: '100%' }}>
-        <DataGrid rows={state.rows} columns={state.columns} pageSize={15} />
+      <div style={{ height: 640, width: '100%' }}>
+        <DataGrid rows={state.rows} columns={state.columns} pageSize={10} />
       </div>
     );
   }
@@ -44,11 +40,15 @@ class Fish extends Component {
     var i = 0;
   result.forEach(element => {
       res[i] = {id: i,
-          userId: element.userId,
-          name: element.name,
-          email: element.email,
-          password: element.password,
-          role: element.role
+        fishId: element.fishId,
+        kindOfFishId: element.kindOfFishId,
+        sex: element.sex,
+        dateOfBirth: element.dateOfBirth,
+        poolNowId: element.poolNowId,
+        relocationPoolId: element.relocationPoolId,
+        weight: element.weight,
+        adulthood: element.adulthood,
+        state: element.state,
       };
         i++;
     });
