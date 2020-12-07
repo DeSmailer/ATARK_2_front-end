@@ -6,6 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { Link } from 'react-router-dom';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -76,25 +77,15 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <LinkTab label="УЗВ(стан системи)" href="/signIn" {...a11yProps(0)} />
-          <LinkTab label="басейни" href="/signUp" {...a11yProps(1)} />
-          <LinkTab label="риба" href="/spam" {...a11yProps(2)} />
-          <LinkTab label="стадо" href="/spam1" {...a11yProps(3)} />
-          <LinkTab label="вид риби" href="/spam1" {...a11yProps(4)} />
-          <LinkTab label="вагітність" href="/spam1" {...a11yProps(5)} />
-          <LinkTab label="дойка" href="/spam1" {...a11yProps(6)} />
-          <LinkTab label="організація" href="/spam1" {...a11yProps(7)} />
+          <Tab label="УЗВ" href="/ClosedWaterSupplyInstallationListByOrganizationId" {...a11yProps(0)} />
+          <Tab label="басейни" href="/PoolListByOrganizationId" {...a11yProps(1)} />
+          <Tab label="вид риби" href="/KindOfFishList" {...a11yProps(4)} />
+          <Tab label="вагітність" href="/spam1" {...a11yProps(5)} />
+          <Tab label="дойка" href="/spam1" {...a11yProps(6)} />
+          <Tab label="організація" href="/spam1" {...a11yProps(7)} />
 
         </Tabs>
       </AppBar>
-      {/* <TabPanel value={value} index={0}>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-      </TabPanel> */}
     </div>
   );
 }

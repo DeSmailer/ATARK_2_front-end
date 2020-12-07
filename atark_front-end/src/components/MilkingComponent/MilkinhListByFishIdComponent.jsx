@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { baseUrl } from '../baseUrl';
-import FishEditForm from './FishEditComponent'
+import { baseUrl, getCookie } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Label, Col, Row, Button } from 'reactstrap';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-class Fish extends Component {
+class MilkinhListByFishId extends Component {
 
   constructor(props) {
     super(props);
@@ -13,73 +13,68 @@ class Fish extends Component {
     this.state = {
 
       columns: [
-        { field: 'fishId', headerName: 'FishId', width: 160 },
-        { field: 'kindOfFishId', headerName: 'KindOfFishId', width: 160 },
-        { field: 'sex', headerName: 'Sex', width: 160 },
-        { field: 'dateOfBirth', headerName: 'DateOfBirth', width: 160 },
-        { field: 'poolNowId', headerName: 'PoolNowId', width: 160 },
-        { field: 'relocationPoolId', headerName: 'RelocationPoolId', width: 160 },
-        { field: 'weight', headerName: 'Weight', width: 160 },
-        { field: 'adulthood', headerName: 'Adulthood', width: 160 },
-        { field: 'state', headerName: 'State', width: 160 }
+        { field: 'poolId', headerName: 'PoolId', width: 160 },
+        { field: 'closedWaterSupplyInstallationId', headerName: 'ClosedWaterSupplyInstallationId', width: 160 },
+        { field: 'whoIsInThePool', headerName: 'WhoIsInThePool', width: 160 },
+        { field: 'volume', headerName: 'Volume', width: 160 }
       ],
       rows: [],
       currentRow: {
-        id: -1,
-        fishId: -1,
-        kindOfFishId: -1,
-        sex: -1,
-        dateOfBirth: -1,
-        poolNowId: -1,
-        relocationPoolId: -1,
-        weight: -1,
-        adulthood: -1,
-        state: -1
+        id: -1
       }
     }
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
+    this.selectRout = this.selectRout.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
     console.log(this.state.currentRow)
-    console.log("Ид" + this.state.currentRow.fishId)
+    console.log("Ид" + this.state.currentRow.poolId)
   }
 
   dataGridDemo(state) {
     return (
       <div>
+        <div>
+
+        </div>
         <div style={{ height: 640, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/fishEditForm/${this.state.currentRow.fishId}`}>
-          <div >
-            <Button>
-              Регистрация
+        <div >
+          <Button onClick={() => this.selectRout()}>
+            вміст басейну басейні
             </Button>
-          </div>
-        </Link>
+        </div>
       </div >
     );
   }
+
+  selectRout() {
+    if (this.state.currentRow.whoIsInThePool == "fish"){
+      console.log(this.state.currentRow.whoIsInThePool);
+      window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
+    }
+    else if (this.state.currentRow.whoIsInThePool == "herd"){
+      console.log(this.state.currentRow.whoIsInThePool);
+      window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
+    }
+  }
+
   fillRows(result) {
     var res = [];
     var i = 0;
     result.forEach(element => {
       res[i] = {
         id: i,
-        fishId: element.fishId,
-        kindOfFishId: element.kindOfFishId,
-        sex: element.sex,
-        dateOfBirth: element.dateOfBirth,
-        poolNowId: element.poolNowId,
-        relocationPoolId: element.relocationPoolId,
-        weight: element.weight,
-        adulthood: element.adulthood,
-        state: element.state,
+        poolId: element.poolId,
+        closedWaterSupplyInstallationId: element.closedWaterSupplyInstallationId,
+        whoIsInThePool: element.whoIsInThePool,
+        volume: element.volume
       };
       i++;
     });
@@ -88,7 +83,7 @@ class Fish extends Component {
 
   componentDidMount() {
 
-    fetch(baseUrl + "Fish/Get", {
+    fetch(baseUrl + `Pool/GetByOrganizatoinId/${getCookie("organizationId")}`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -121,4 +116,4 @@ class Fish extends Component {
   }
 }
 
-export default Fish;
+export default MilkinhListByFishId;
