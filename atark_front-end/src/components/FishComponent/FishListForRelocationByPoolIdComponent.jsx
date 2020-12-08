@@ -5,7 +5,7 @@ import FishEditForm from './FishEditComponent'
 import { Link } from 'react-router-dom';
 import { Label, Col, Row, Button } from 'reactstrap';
 
-class FishListByPoolId extends Component {
+class FishListForRelocationByPoolId extends Component {
 
   constructor(props) {
     super(props);
@@ -31,6 +31,7 @@ class FishListByPoolId extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
+    this.ConfirmRelocation = this.ConfirmRelocation.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
@@ -60,8 +61,36 @@ class FishListByPoolId extends Component {
             </Button>
           </div>
         </Link>
+        <div >
+            <Button onClick={this.ConfirmRelocation} >
+              Підтвердити перенос
+            </Button>
+          </div>
       </div >
     );
+  }
+
+  ConfirmRelocation() {
+    fetch(baseUrl + `Fish/ConfirmRelocation/${this.state.currentRow.fishId}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount();
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
+
+        }
+      );
   }
   fillRows(result) {
     var res = [];
@@ -86,7 +115,7 @@ class FishListByPoolId extends Component {
 
   componentDidMount() {
 
-    fetch(baseUrl + `Fish/GetFishByPoolId/${this.props.match.params.poolId}`, {
+    fetch(baseUrl + `Fish/GetFishForRelocationByPoolId/${this.props.match.params.poolId}`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -119,4 +148,4 @@ class FishListByPoolId extends Component {
   }
 }
 
-export default FishListByPoolId;
+export default FishListForRelocationByPoolId;

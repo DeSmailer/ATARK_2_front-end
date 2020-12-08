@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Label, Col, Row, Button } from 'reactstrap';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-class MilkinhListByFishId extends Component {
+class PregancyListByFishId extends Component {
 
   constructor(props) {
     super(props);
@@ -13,10 +13,9 @@ class MilkinhListByFishId extends Component {
     this.state = {
 
       columns: [
-        { field: 'milkingId', headerName: 'MilkingId', width: 160 },
+        { field: 'pregnancyId', headerName: 'PregnancyId', width: 160 },
         { field: 'fishId', headerName: 'FishId', width: 160 },
-        { field: 'milkingDate', headerName: 'MilkingDate', width: 160 },
-        { field: 'caviarWeight', headerName: 'CaviarWeight', width: 160 }
+        { field: 'startDateOfPregnancy', headerName: 'StartDateOfPregnancy', width: 160 }
       ],
       rows: [],
       currentRow: {
@@ -64,17 +63,16 @@ class MilkinhListByFishId extends Component {
       window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
     }
   }
-
+ 
   fillRows(result) {
     var res = [];
     var i = 0;
     result.forEach(element => {
       res[i] = {
         id: i,
-        milkingId: element.milkingId,
+        pregnancyId: element.pregnancyId,
         fishId: element.fishId,
-        milkingDate: element.milkingDate,
-        caviarWeight: element.caviarWeight
+        startDateOfPregnancy: element.startDateOfPregnancy
       };
       i++;
     });
@@ -83,7 +81,7 @@ class MilkinhListByFishId extends Component {
 
   componentDidMount() {
 
-    fetch(baseUrl + `Milking/GetByFishId/${this.props.match.params.fishId}`, {
+    fetch(baseUrl + `Pregnancy/GetByFishId/${this.props.match.params.fishId}`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -116,4 +114,4 @@ class MilkinhListByFishId extends Component {
   }
 }
 
-export default MilkinhListByFishId;
+export default PregancyListByFishId;

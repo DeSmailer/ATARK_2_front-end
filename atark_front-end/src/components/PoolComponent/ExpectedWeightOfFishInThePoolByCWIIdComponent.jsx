@@ -3,9 +3,8 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl, getCookie } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Label, Col, Row, Button } from 'reactstrap';
-import { Switch, Route, Redirect } from 'react-router-dom';
 
-class MilkinhListByFishId extends Component {
+class ExpectedWeightOfFishInThePoolByCWIId extends Component {
 
   constructor(props) {
     super(props);
@@ -13,10 +12,9 @@ class MilkinhListByFishId extends Component {
     this.state = {
 
       columns: [
-        { field: 'milkingId', headerName: 'MilkingId', width: 160 },
-        { field: 'fishId', headerName: 'FishId', width: 160 },
-        { field: 'milkingDate', headerName: 'MilkingDate', width: 160 },
-        { field: 'caviarWeight', headerName: 'CaviarWeight', width: 160 }
+        { field: 'poolId', headerName: 'PoolId', width: 160 },
+        { field: 'maxWeight', headerName: 'MaxWeight', width: 160 },
+        { field: 'currentWeight', headerName: 'CurrentWeight', width: 160 }
       ],
       rows: [],
       currentRow: {
@@ -26,12 +24,10 @@ class MilkinhListByFishId extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
-    this.selectRout = this.selectRout.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
     console.log(this.state.currentRow)
-    console.log("Ид" + this.state.currentRow.milkingId)
   }
 
   dataGridDemo(state) {
@@ -45,36 +41,35 @@ class MilkinhListByFishId extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <div >
-          <Button onClick={() => this.selectRout()}>
-            вміст басейну басейні
+        <Link to={`/FishListByPoolId/${this.state.currentRow.poolId}`}>
+          <div >
+            <Button>
+              Вміст басейну зараз
             </Button>
-        </div>
+          </div>
+        </Link>
+        <Link to={`/FishListForRelocationByPoolId/${this.state.currentRow.poolId}`}>
+          <div >
+            <Button>
+              Рыба для переносу
+            </Button>
+          </div>
+        </Link>
       </div >
     );
   }
 
-  selectRout() {
-    if (this.state.currentRow.whoIsInThePool == "fish"){
-      console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
-    }
-    else if (this.state.currentRow.whoIsInThePool == "herd"){
-      console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
-    }
-  }
-
+  
   fillRows(result) {
     var res = [];
     var i = 0;
+
     result.forEach(element => {
       res[i] = {
         id: i,
-        milkingId: element.milkingId,
-        fishId: element.fishId,
-        milkingDate: element.milkingDate,
-        caviarWeight: element.caviarWeight
+        poolId: element.poolId,
+        maxWeight: element.maxWeight,
+        currentWeight: element.currentWeight
       };
       i++;
     });
@@ -82,8 +77,7 @@ class MilkinhListByFishId extends Component {
   }
 
   componentDidMount() {
-
-    fetch(baseUrl + `Milking/GetByFishId/${this.props.match.params.fishId}`, {
+    fetch(baseUrl + "Pool/GetWeightOfFishInThePool/" + this.props.match.params.closedWaterSupplyInstallationId, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -116,4 +110,4 @@ class MilkinhListByFishId extends Component {
   }
 }
 
-export default MilkinhListByFishId;
+export default ExpectedWeightOfFishInThePoolByCWIId;

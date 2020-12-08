@@ -10,8 +10,13 @@ import FishEditForm from './FishComponent/FishEditComponent'
 import KindOfFishList from './KindOfFishComponent/KindOfFishListComponent'
 import HerdListByPoolId from './HerdComponent/HerdListByPoolIdComponent'
 import MilkinhListByFishId from './MilkingComponent/MilkinhListByFishIdComponent'
+import PregancyListByFishId from './PregnancyComponent/PregancyListByFishIdComponent'
+import ExpectedWeightOfFishInThePoolByCWIId from './PoolComponent/ExpectedWeightOfFishInThePoolByCWIIdComponent'
+import FishListForRelocationByPoolId from './FishComponent/FishListForRelocationByPoolIdComponent'
+import AddClosedWaterSupplyInstallation from './ClosedWaterSupplyInstallation/AddClosedWaterSupplyInstallationComponent'
+
+
 import { Switch, Route, Redirect } from 'react-router-dom';
-MilkinhListByFishId
 class Main extends Component {
     render() {
         return (
@@ -20,14 +25,27 @@ class Main extends Component {
                 <Switch>
                     <Route path="/signUp" component={SignUp}></Route>
                     <Route path="/signIn" component={LogIn}></Route>
+
                     <Route path="/ClosedWaterSupplyInstallationListByOrganizationId" component={ClosedWaterSupplyInstallationListByOrganizationId}></Route>
+                    <Route path="/AddClosedWaterSupplyInstallation" component={AddClosedWaterSupplyInstallation}></Route>
+
                     <Route path="/poolListByCWIId/:closedWaterSupplyInstallationId" component={PoolListByCWIId}></Route>
                     <Route path="/PoolListByOrganizationId" component={PoolListByOrganizationId}></Route>
+                    
                     <Route path="/FishListByPoolId/:poolId" component={FishListByPoolId}></Route>
-                    <Route path="/HerdListByPoolId/:poolId" component={HerdListByPoolId}></Route>
-                    <Route path="/KindOfFishList" component={KindOfFishList}></Route>
+                    <Route path="/FishListForRelocationByPoolId/:poolId" component={FishListForRelocationByPoolId}></Route>
                     <Route path="/fishEditForm/:FishId" component={FishEditForm}></Route>
-                    <Route path="/HerdListByPoolId/:FishId" component={HerdListByPoolId}></Route>
+                    
+                    <Route path="/HerdListByPoolId/:poolId" component={HerdListByPoolId}></Route>
+                    
+                    <Route path="/KindOfFishList" component={KindOfFishList}></Route>
+                    
+                    <Route path="/MilkinhListByFishId/:fishId" component={MilkinhListByFishId}></Route>
+
+                    <Route path="/PregancyListByFishId/:fishId" component={PregancyListByFishId}></Route>
+
+                    <Route path="/ExpectedWeightOfFishInThePoolByCWIId/:closedWaterSupplyInstallationId" component={ExpectedWeightOfFishInThePoolByCWIId}></Route>
+                    
                     <Redirect to="/signIn" component={LogIn}></Redirect>
                 </Switch>
             </div>
