@@ -48,37 +48,32 @@ class FishListForRelocationByPoolId extends Component {
           />
         </div>
         <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               дойки
             </Button>
-          </div>
         </Link>
         <Link to={`/PregancyListByFishId/${this.state.currentRow.fishId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               вагітності
             </Button>
-          </div>
         </Link>
-        <div >
-          <Button onClick={this.ConfirmRelocation} >
+          <Button onClick={this.ConfirmRelocation} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Підтвердити перенос
             </Button>
-        </div>
         <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Змінити рибину
             </Button>
-          </div>
         </Link>
         <Link to={`/AddFishComponent/${this.props.match.params.poolId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Додати рибину
             </Button>
-          </div>
         </Link>
       </div >
     );

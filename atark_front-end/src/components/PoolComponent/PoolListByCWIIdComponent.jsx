@@ -46,29 +46,25 @@ class PoolListByPoolId extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <div >
-          <Button onClick={() => this.selectRout()}>
-            вміст басейну басейні
+          <Button onClick={() => this.selectRout()} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            вміст басейну
             </Button>
-        </div>
-        <div >
-          <Button onClick={this.deleteSucces} >
+          <Button onClick={this.deleteSucces} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити басейн
             </Button>
-        </div>
         <Link to={`/AddPoolByCWIId/${this.props.match.params.closedWaterSupplyInstallationId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Додати басейн
             </Button>
-          </div>
         </Link>
         <Link to={`/EditPoolByCWIId/${this.state.currentRow.poolId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Змінити басейн
             </Button>
-          </div>
         </Link>
       </div >
     );

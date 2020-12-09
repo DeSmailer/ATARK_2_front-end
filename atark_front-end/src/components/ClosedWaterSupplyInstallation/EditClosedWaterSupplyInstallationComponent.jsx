@@ -120,9 +120,10 @@ class EditClosedWaterSupplyInstallation extends Component {
                         <input className="form-control" id="Location" name="Location" value={this.state.Location} onChange={this.changeLocation} />
                                 </label>
                                 <button
-                                    className="btn btn-primary btn-lg disabled"
+                                className="btn btn-primary btn-lg disabled"
+                                style={{ width: '20%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
                                     type="submit"
-                                    style={{ width: '600px', backgroundColor: '#00AF00', marginBottom: "20px", marginTop: "50px" }} > 
+                                    > 
                                     Змінити
                                 </button>
                             </div>

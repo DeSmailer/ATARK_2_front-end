@@ -46,7 +46,8 @@ class MilkinhListByFishId extends Component {
           />
         </div>
         <div >
-          <Button onClick={() => this.selectRout()}>
+          <Button onClick={() => this.selectRout()} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             вміст басейну басейні
             </Button>
         </div>

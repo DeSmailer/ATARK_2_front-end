@@ -48,47 +48,40 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
           />
         </div>
         <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Басейни в узв
             </Button>
-          </div>
         </Link>
         <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Стан басейній в УЗВ
             </Button>
-          </div>
         </Link>
-        <div >
-          <Button onClick={this.updateRelocationPoolToPoolNow} >
+          <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Відкат БЛ
             </Button>
-        </div>
-        <div >
-          <Button onClick={this.RedistributeFish} >
+          <Button onClick={this.RedistributeFish} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Робота БЛ
             </Button>
-        </div>
-        <div >
-          <Button onClick={this.deleteSucces} >
+          <Button onClick={this.deleteSucces} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити УЗВ
             </Button>
-        </div>
         <Link to={`/AddClosedWaterSupplyInstallation`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Додати узв
             </Button>
-          </div>
         </Link>
         <Link to={`/EditClosedWaterSupplyInstallation/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-          <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Змінити УЗВ
             </Button>
-          </div>
         </Link>
       </div >
     );

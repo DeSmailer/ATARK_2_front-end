@@ -157,9 +157,10 @@ class FishEdit extends Component {
                             <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
                         </div>
                         <button
-                            className="form-group"
+                            
                             type="submit"
-                            style={{ width: '20%', backgroundColor: '#003F00', marginBottom: "20px" }}
+                            className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
                         > Добавить
                     </button>
                     </form>

@@ -125,9 +125,10 @@ class EditPoolByCWIId extends Component {
                         <input className="form-control" id="WhoIsInThePool" name="WhoIsInThePool" value={this.state.WhoIsInThePool}  />
                 </label>
                 <button
-                  className="btn btn-primary btn-lg disabled"
+                  
                   type="submit"
-                  style={{ width: '600px', backgroundColor: '#00AF00', marginBottom: "20px", marginTop: "50px" }}
+                  className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
                 > Добавить
                 </button>
               </div>

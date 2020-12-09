@@ -42,24 +42,22 @@ class ExpectedWeightOfFishInThePoolByCWIId extends Component {
           />
         </div>
         <Link to={`/FishListByPoolId/${this.state.currentRow.poolId}`}>
-          <div >
-            <Button>
-              Вміст басейну зараз
+          <Button className="btn btn-primary btn-lg disabled"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Вміст басейну зараз
             </Button>
-          </div>
         </Link>
         <Link to={`/FishListForRelocationByPoolId/${this.state.currentRow.poolId}`}>
-          <div >
-            <Button>
-              Рыба для переносу
+          <Button className="btn btn-primary btn-lg disabled"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Рыба для переносу
             </Button>
-          </div>
         </Link>
       </div >
     );
   }
 
-  
+
   fillRows(result) {
     var res = [];
     var i = 0;

@@ -43,7 +43,8 @@ class KindOfFishList extends Component {
         </div>
         <Link to={`/fishEditForm/${ getCookie("organizationId")}`}>
           <div >
-            <Button>
+            <Button className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Регистрация
             </Button>
           </div>

@@ -47,12 +47,13 @@ class PoolListByOrganizationId extends Component {
           />
         </div>
         <div >
-          <Button onClick={() => this.selectRout()}>
-            вміст басейну басейні
+          <Button onClick={() => this.selectRout()} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            вміст басейну
             </Button>
-        </div>
-        <div >
-          <Button onClick={this.deleteSucces} >
+        
+          <Button onClick={this.deleteSucces} className="btn btn-primary btn-lg disabled"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити басейн
             </Button>
         </div>
