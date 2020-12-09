@@ -37,14 +37,15 @@ class HerdListByPoolId extends Component {
   dataGridDemo(state) {
     return (
       <div>
-        <div style={{ height: 640, width: '100%' }}>
+        <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
         <Link to={`/fishEditForm/${this.state.currentRow.fishId}`}>
           <div >
-            <Button>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Регистрация
             </Button>
           </div>

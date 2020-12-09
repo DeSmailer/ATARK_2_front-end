@@ -42,35 +42,35 @@ class FishListByPoolId extends Component {
   dataGridDemo(state) {
     return (
       <div>
-        <div style={{ height: 640, width: '100%' }}>
+        <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
         <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary btn-lg disabled"
+            <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               дойки
             </Button>
         </Link>
         <Link to={`/PregancyListByFishId/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary btn-lg disabled"
+            <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               вагітності
             </Button>
         </Link>
-          <Button onClick={this.deleteSucces} className="btn btn-primary btn-lg disabled"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+          <Button onClick={this.deleteSucces} className="btn btn-primary"
+                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити рибину
             </Button>
         <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary btn-lg disabled"
+            <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Змінити рибину
             </Button>
         </Link>
         <Link to={`/AddFishComponent/${this.props.match.params.poolId}`}>
-            <Button className="btn btn-primary btn-lg disabled"
+            <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Додати рибину
             </Button>

@@ -40,13 +40,13 @@ class MilkinhListByFishId extends Component {
         <div>
 
         </div>
-        <div style={{ height: 640, width: '100%' }}>
+        <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
         <div >
-          <Button onClick={() => this.selectRout()} className="btn btn-primary btn-lg disabled"
+          <Button onClick={() => this.selectRout()} className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             вміст басейну басейні
             </Button>

@@ -87,9 +87,10 @@ class AddPoolByCWIId extends Component {
                         <input className="form-control" id="Location" name="Location" value={this.state.Volume} onChange={this.changeVolume} />
                 </label>
                 <button
-                  className="btn btn-primary btn-lg disabled"
+                  
                   type="submit"
-                  style={{ width: '600px', backgroundColor: '#00AF00', marginBottom: "20px", marginTop: "50px" }}
+                  className="btn btn-primary"
+                    style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
                 > Добавить
                 </button>
               </div>

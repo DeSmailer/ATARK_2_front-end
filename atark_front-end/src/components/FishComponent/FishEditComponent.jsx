@@ -65,7 +65,7 @@ class FishEdit extends Component {
     editFish() {
         const newAccount = {
             FishId: this.state.FishId,
-            KindOfFishId:this.state.KindOfFishId,
+            KindOfFishId: this.state.KindOfFishId,
             Sex: this.state.Sex,
             DateOfBirth: this.state.DateOfBirth,
             PoolNowId: this.state.PoolNowId,
@@ -143,28 +143,38 @@ class FishEdit extends Component {
                 <div className="col-12">
                 </div>
                 <div>
-                    <h2>Змінити інформацію про рибину</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <input className="form-control" id="fishId" name="FishId" value={this.state.FishId} />
-                            <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
-                            <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
-                            <input className="form-control" id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
-                            <input className="form-control" id="poolNowId" name="PoolNowId" value={this.state.PoolNowId} onChange={this.changePoolNowId} />
-                            <input className="form-control" id="relocationPoolId" name="RelocationPoolId" value={this.state.RelocationPoolId} onChange={this.changeRelocationPoolId} />
-                            <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
-                            <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
-                            <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
-                        </div>
-                        <button
-                            
-                            type="submit"
-                            className="btn btn-primary btn-lg disabled"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
-                        > Добавить
-                    </button>
-                    </form>
+                    <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
+                        <h2>Змінити інформацію про рибину</h2>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <label className="form-group" style={{ width: "600px" }}> Рибина </label>
+                                <input className="form-control" id="fishId" name="FishId" value={this.state.FishId} />
+                                <label className="form-group" style={{ width: "600px" }}> Вид риби </label>
+                                <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
+                                <label className="form-group" style={{ width: "600px" }}> Стать </label>
+                                <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
+                                <label className="form-group" style={{ width: "600px" }}>  День народження </label>
+                                <input className="form-control" id="dateOfBirth" type="datetime-local" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
+                                <label className="form-group" style={{ width: "600px" }}>  Басейн зараз </label>
+                                <input className="form-control" id="poolNowId" name="PoolNowId" value={this.state.PoolNowId} onChange={this.changePoolNowId} />
+                                <label className="form-group" style={{ width: "600px" }}>  Басейн для переносу </label>
+                                <input className="form-control" id="relocationPoolId" name="RelocationPoolId" value={this.state.RelocationPoolId} onChange={this.changeRelocationPoolId} />
+                                <label className="form-group" style={{ width: "600px" }}>  Вага </label>
+                                <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
+                                <label className="form-group" style={{ width: "600px" }}>  Зрілість </label>
+                                <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
+                                <label className="form-group" style={{ width: "600px" }}>  Стан </label>
+                                <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
+                            </div>
+                            <button
 
+                                type="submit"
+                                className="btn btn-primary"
+                                style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
+                            > Добавить
+                    </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         );

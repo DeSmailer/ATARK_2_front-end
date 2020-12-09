@@ -43,7 +43,7 @@ class AddFish extends Component {
     changeDateOfBirth(event) {
         this.setState({ DateOfBirth: event.target.value });
     }
-    
+
     changeWeight(event) {
         this.setState({ Weight: event.target.value });
     }
@@ -62,75 +62,76 @@ class AddFish extends Component {
             Weight: this.state.Weight,
             Adulthood: this.state.Adulthood,
             State: this.state.State,
-    }
-    fetch(baseUrl + `Fish/Add`, {
-        method: 'POST',
-        body: JSON.stringify(newAccount),
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json; charset=UTF-8'
-        },
-        credentials: 'same-origin'
-    })
-            .then(
-        (response) => {
-            if (response.ok) {
-                alert("Ok");
-            }
-        },
-        (error) => {
-            alert(error);
-
         }
-    );
+        fetch(baseUrl + `Fish/Add`, {
+            method: 'POST',
+            body: JSON.stringify(newAccount),
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json; charset=UTF-8'
+            },
+            credentials: 'same-origin'
+        })
+            .then(
+                (response) => {
+                    if (response.ok) {
+                        alert("Ok");
+                    }
+                },
+                (error) => {
+                    alert(error);
+
+                }
+            );
     }
 
-componentDidMount() {
-    this.setState({
-        isLoaded: true,
-    });
-}
+    componentDidMount() {
+        this.setState({
+            isLoaded: true,
+        });
+    }
 
-handleSubmit = event => {
-    this.addFish();
-    event.preventDefault();
-}
-render() {
-    return (
-        <div className="container">
-            <div className="col-12">
-            </div>
-            <div>
-                <h2>Додати рибину</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label className="form-group" style={{ width: "600px" }}> вид риби </label>
-                        <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
-                        <label className="form-group" style={{ width: "600px" }}> стать </label>
-                        <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
-                        <label className="form-group" style={{ width: "600px" }}> дата народження </label>
-                        <input className="form-control" id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
+    handleSubmit = event => {
+        this.addFish();
+        event.preventDefault();
+    }
+    render() {
+        return (
+            <div className="container">
+                <div className="col-12">
+                </div>
+                <div>
+                    <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
+                        <h2>Додати рибину</h2>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <label className="form-group" style={{ width: "600px" }}> вид риби </label>
+                                <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
+                                <label className="form-group" style={{ width: "600px" }}> стать </label>
+                                <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
+                                <label className="form-group" style={{ width: "600px" }}> дата народження </label>
+                                <input className="form-control" type='datetime-local' id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
 
-                        <label className="form-group" style={{ width: "600px" }}> вага </label>
-                        <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
-                        <label className="form-group" style={{ width: "600px" }}> Зрілість </label>
-                        <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
-                        <label className="form-group" style={{ width: "600px" }}> Стан </label>
-                        <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
-                    </div>
-                    <button
-                        
-                        type="submit"
-                        className="btn btn-primary btn-lg disabled"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
-                    > Добавить
+                                <label className="form-group" style={{ width: "600px" }}> вага </label>
+                                <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
+                                <label className="form-group" style={{ width: "600px" }}> Зрілість </label>
+                                <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
+                                <label className="form-group" style={{ width: "600px" }}> Стан </label>
+                                <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
+                            </div>
+                            <button
+
+                                type="submit"
+                                className="btn btn-primary"
+                                style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
+                            > Добавить
                     </button>
-                </form>
-
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-    );
-}
+        );
+    }
 }
 
 export default AddFish;

@@ -127,7 +127,7 @@ class EditPoolByCWIId extends Component {
                 <button
                   
                   type="submit"
-                  className="btn btn-primary btn-lg disabled"
+                  className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
                 > Добавить
                 </button>
