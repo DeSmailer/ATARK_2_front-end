@@ -27,6 +27,7 @@ class PoolListByOrganizationId extends Component {
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
     this.selectRout = this.selectRout.bind(this);
+    this.deleteSucces = this.deleteSucces.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
@@ -50,18 +51,45 @@ class PoolListByOrganizationId extends Component {
             вміст басейну басейні
             </Button>
         </div>
+        <div >
+          <Button onClick={this.deleteSucces} >
+            Видалити басейн
+            </Button>
+        </div>
+
       </div >
     );
   }
+  deleteSucces() {
+    fetch(baseUrl + `Pool/Delete/${this.state.currentRow.poolId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
 
+        }
+      );
+  }
   selectRout() {
-    if (this.state.currentRow.whoIsInThePool == "fish"){
+    if (this.state.currentRow.whoIsInThePool == "fish") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/FishListByPoolId/${this.state.currentRow.poolId}`
     }
-    else if (this.state.currentRow.whoIsInThePool == "herd"){
+    else if (this.state.currentRow.whoIsInThePool == "herd") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/HerdListByPoolId/${this.state.currentRow.poolId}`
     }
   }
 

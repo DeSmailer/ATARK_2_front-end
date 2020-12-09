@@ -42,7 +42,7 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
         <div>
 
         </div>
-        <div style={{ height: 640, width: '100%' }}>
+        <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
@@ -80,6 +80,13 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
           <div >
             <Button>
               Додати узв
+            </Button>
+          </div>
+        </Link>
+        <Link to={`/EditClosedWaterSupplyInstallation/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+          <div >
+            <Button>
+              Змінити УЗВ
             </Button>
           </div>
         </Link>

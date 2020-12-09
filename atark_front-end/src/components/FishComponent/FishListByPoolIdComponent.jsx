@@ -31,6 +31,7 @@ class FishListByPoolId extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
+    this.deleteSucces = this.deleteSucces.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
@@ -60,8 +61,49 @@ class FishListByPoolId extends Component {
             </Button>
           </div>
         </Link>
+        <div >
+          <Button onClick={this.deleteSucces} >
+            Видалити рибину
+            </Button>
+        </div>
+        <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
+          <div >
+            <Button>
+              Змінити рибину
+            </Button>
+          </div>
+        </Link>
+        <Link to={`/AddFishComponent/${this.props.match.params.poolId}`}>
+          <div >
+            <Button>
+              Додати рибину
+            </Button>
+          </div>
+        </Link>
       </div >
     );
+  }
+  deleteSucces() {
+    fetch(baseUrl + `Fish/Delete/${this.state.currentRow.fishId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
+
+        }
+      );
   }
   fillRows(result) {
     var res = [];

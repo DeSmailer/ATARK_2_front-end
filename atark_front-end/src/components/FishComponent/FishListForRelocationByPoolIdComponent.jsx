@@ -62,10 +62,24 @@ class FishListForRelocationByPoolId extends Component {
           </div>
         </Link>
         <div >
-            <Button onClick={this.ConfirmRelocation} >
-              Підтвердити перенос
+          <Button onClick={this.ConfirmRelocation} >
+            Підтвердити перенос
+            </Button>
+        </div>
+        <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
+          <div >
+            <Button>
+              Змінити рибину
             </Button>
           </div>
+        </Link>
+        <Link to={`/AddFishComponent/${this.props.match.params.poolId}`}>
+          <div >
+            <Button>
+              Додати рибину
+            </Button>
+          </div>
+        </Link>
       </div >
     );
   }

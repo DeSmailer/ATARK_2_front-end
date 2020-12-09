@@ -26,6 +26,8 @@ class PoolListByPoolId extends Component {
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
     this.selectRout = this.selectRout.bind(this);
+    this.deleteSucces = this.deleteSucces.bind(this);
+
 
   }
   setSelection(row) {
@@ -49,6 +51,25 @@ class PoolListByPoolId extends Component {
             вміст басейну басейні
             </Button>
         </div>
+        <div >
+          <Button onClick={this.deleteSucces} >
+            Видалити басейн
+            </Button>
+        </div>
+        <Link to={`/AddPoolByCWIId/${this.props.match.params.closedWaterSupplyInstallationId}`}>
+          <div >
+            <Button>
+              Додати басейн
+            </Button>
+          </div>
+        </Link>
+        <Link to={`/EditPoolByCWIId/${this.state.currentRow.poolId}`}>
+          <div >
+            <Button>
+              Змінити басейн
+            </Button>
+          </div>
+        </Link>
       </div >
     );
   }
@@ -78,7 +99,28 @@ class PoolListByPoolId extends Component {
     });
     return res;
   }
+  deleteSucces() {
+    fetch(baseUrl + `Pool/Delete/${this.state.currentRow.poolId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
 
+        }
+      );
+  }
   componentDidMount() {
     fetch(baseUrl + "Pool/GetByCWIIdId/" + this.props.match.params.closedWaterSupplyInstallationId, {
       method: "GET",
