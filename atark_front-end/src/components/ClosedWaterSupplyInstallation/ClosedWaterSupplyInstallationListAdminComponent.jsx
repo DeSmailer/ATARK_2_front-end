@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { baseUrl, getCookie } from '../baseUrl';
+import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
-class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
+class ClosedWaterSupplyInstallationListAdmin extends Component {
 
   constructor(props) {
     super(props);
-
+    
     this.state = {
 
       columns: [
         { field: 'closedWaterSupplyInstallationId', headerName: 'ClosedWaterSupplyInstallationId', width: 160 },
         { field: 'organizationId', headerName: 'OrganizationId', width: 160 },
+        { field: 'stateOfTheSystemId', headerName: 'StateOfTheSystemId', width: 160 },
         { field: 'location', headerName: 'Location', width: 160 }
       ],
       rows: [],
@@ -167,6 +168,7 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
         id: i,
         closedWaterSupplyInstallationId: element.closedWaterSupplyInstallationId,
         organizationId: element.organizationId,
+        stateOfTheSystemId: element.stateOfTheSystemId,
         location: element.location
       };
       i++;
@@ -176,7 +178,7 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
 
   componentDidMount() {
 
-    fetch(baseUrl + `ClosedWaterSupplyInstallation/GetByOrganizatoinId/${getCookie("organizationId")}`, {
+    fetch(baseUrl + `ClosedWaterSupplyInstallation/Get`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -209,4 +211,4 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
   }
 }
 
-export default ClosedWaterSupplyInstallationListByOrganizationId;
+export default ClosedWaterSupplyInstallationListAdmin;

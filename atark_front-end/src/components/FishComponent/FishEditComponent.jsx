@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
 
-
-
-
-const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !(val) || (val.length <= len);
-const minLength = (len) => (val) => (val) && (val.length >= len);
-const isNumber = (val) => !isNaN(Number(val));
-const validMail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
-
 class FishEdit extends Component {
 
     constructor(props) {

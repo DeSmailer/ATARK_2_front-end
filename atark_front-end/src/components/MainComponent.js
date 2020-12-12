@@ -19,8 +19,14 @@ import AddPoolByCWIId from './PoolComponent/AddPoolByCWIIdComponent'
 import EditPoolByCWIId from './PoolComponent/EditPoolByCWIIdComponent'
 import FishEdit from './FishComponent/FishEditComponent'
 import AddFishComponent from './FishComponent/AddFishComponent'
-
-
+import OrganizationListAdmin from './OrganizationComponent/OrganizationListAdminComponent'
+import ClosedWaterSupplyInstallationListAdmin from './ClosedWaterSupplyInstallation/ClosedWaterSupplyInstallationListAdminComponent'
+import PoolListAdmin from './PoolComponent/PoolListAdminComponent'
+import FishListAdmin from './FishComponent/FishListAdminComponent'
+import HerdListAdmin from './HerdComponent/HerdListAdminComponent'
+import MilkingListAdmin from './MilkingComponent/MilkingListAdminComponent'
+import PregancyListAdmin from './PregnancyComponent/PregancyListAdminComponent'
+import StateOfTheSystemListAdmin from './StateOfTheSystemComponent/StateOfTheSystemListAdminComponent'
 
 
 
@@ -58,6 +64,27 @@ class Main extends Component {
                     <Route path="/PregancyListByFishId/:fishId" component={PregancyListByFishId}></Route>
 
                     <Route path="/ExpectedWeightOfFishInThePoolByCWIId/:closedWaterSupplyInstallationId" component={ExpectedWeightOfFishInThePoolByCWIId}></Route>
+                    
+
+                    {/* админ */}
+
+                    <Route path="/OrganizationListAdmin" component={OrganizationListAdmin}></Route>
+
+                    <Route path="/ClosedWaterSupplyInstallationListAdmin" component={ClosedWaterSupplyInstallationListAdmin}></Route>
+
+                    <Route path="/PoolListAdmin" component={PoolListAdmin}></Route>
+
+                    <Route path="/FishListAdmin" component={FishListAdmin}></Route>
+
+                    <Route path="/HerdListAdmin" component={HerdListAdmin}></Route>
+
+                    <Route path="/MilkingListAdmin" component={MilkingListAdmin}></Route>
+
+                    <Route path="/PregancyListAdmin" component={PregancyListAdmin}></Route>
+
+                    <Route path="/StateOfTheSystemListAdmin" component={StateOfTheSystemListAdmin}></Route>
+
+
                     
                     <Redirect to="/signIn" component={LogIn}></Redirect>
                 </Switch>

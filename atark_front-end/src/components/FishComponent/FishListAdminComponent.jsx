@@ -4,7 +4,7 @@ import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
-class FishListForRelocationByPoolId extends Component {
+class FishListAdmin extends Component {
 
   constructor(props) {
     super(props);
@@ -30,7 +30,7 @@ class FishListForRelocationByPoolId extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
-    this.ConfirmRelocation = this.ConfirmRelocation.bind(this);
+    this.deleteSucces = this.deleteSucces.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
@@ -58,9 +58,9 @@ class FishListForRelocationByPoolId extends Component {
               вагітності
             </Button>
         </Link>
-          <Button onClick={this.ConfirmRelocation} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Підтвердити перенос
+          <Button onClick={this.deleteSucces} className="btn btn-primary"
+                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Видалити рибину
             </Button>
         <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
             <Button className="btn btn-primary"
@@ -77,10 +77,9 @@ class FishListForRelocationByPoolId extends Component {
       </div >
     );
   }
-
-  ConfirmRelocation() {
-    fetch(baseUrl + `Fish/ConfirmRelocation/${this.state.currentRow.fishId}`, {
-      method: 'PUT',
+  deleteSucces() {
+    fetch(baseUrl + `Fish/Delete/${this.state.currentRow.fishId}`, {
+      method: "DELETE",
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json; charset=UTF-8'
@@ -90,7 +89,7 @@ class FishListForRelocationByPoolId extends Component {
       .then(
         (response) => {
           if (response.ok) {
-            this.componentDidMount();
+            this.componentDidMount()
             alert("Ok");
           }
         },
@@ -123,7 +122,7 @@ class FishListForRelocationByPoolId extends Component {
 
   componentDidMount() {
 
-    fetch(baseUrl + `Fish/GetFishForRelocationByPoolId/${this.props.match.params.poolId}`, {
+    fetch(baseUrl + `Fish/Get`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -156,4 +155,4 @@ class FishListForRelocationByPoolId extends Component {
   }
 }
 
-export default FishListForRelocationByPoolId;
+export default FishListAdmin;

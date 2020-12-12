@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { baseUrl, getCookie } from '../baseUrl';
+import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
-class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
+class OrganizationListAdmin extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-
       columns: [
-        { field: 'closedWaterSupplyInstallationId', headerName: 'ClosedWaterSupplyInstallationId', width: 160 },
-        { field: 'organizationId', headerName: 'OrganizationId', width: 160 },
-        { field: 'location', headerName: 'Location', width: 160 }
+        { field: 'organizationId', headerName: 'OrganizationId', width: 130 },
+        { field: 'mail', headerName: 'Mail', width: 200 },
+        { field: 'password', headerName: 'Password', width: 160 },
+        { field: 'name', headerName: 'Name', width: 180 },
+        { field: 'foundationDate', headerName: 'FoundationDate', width: 180 },
+        { field: 'phoneNumber', headerName: 'PhoneNumber', width: 160 }
       ],
       rows: [],
       currentRow: {
@@ -48,39 +50,39 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
           />
         </div>
         <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Басейни в узв
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Басейни в узв
             </Button>
         </Link>
         <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Стан басейів в УЗВ
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Стан басейів в УЗВ
             </Button>
         </Link>
-          <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Відкат БЛ
+        <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
+          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Відкат БЛ
             </Button>
-          <Button onClick={this.RedistributeFish} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Робота БЛ
+        <Button onClick={this.RedistributeFish} className="btn btn-primary"
+          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Робота БЛ
             </Button>
-          <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити УЗВ
+        <Button onClick={this.deleteSucces} className="btn btn-primary"
+          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Видалити УЗВ
             </Button>
         <Link to={`/AddClosedWaterSupplyInstallation`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати узв
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати узв
             </Button>
         </Link>
         <Link to={`/EditClosedWaterSupplyInstallation/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Змінити УЗВ
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Змінити УЗВ
             </Button>
         </Link>
       </div >
@@ -138,26 +140,27 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
 
   deleteSucces() {
     fetch(baseUrl + `ClosedWaterSupplyInstallation/Delete/${this.state.currentRow.closedWaterSupplyInstallationId}`, {
-        method: "DELETE",
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json; charset=UTF-8'
-        },
-        credentials: 'same-origin'
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
     })
-    .then(
+      .then(
         (response) => {
-            if (response.ok) {
-                this.componentDidMount()
-                alert("Ok");
-            }
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
         },
         (error) => {
-            alert(error);
+          alert(error);
 
         }
-    );
-}
+      );
+  }
+
   fillRows(result) {
     var res = [];
     var i = 0;
@@ -165,9 +168,12 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
 
       res[i] = {
         id: i,
-        closedWaterSupplyInstallationId: element.closedWaterSupplyInstallationId,
         organizationId: element.organizationId,
-        location: element.location
+        mail: element.mail,
+        password: element.password,
+        name: element.name,
+        foundationDate: element.foundationDate,
+        phoneNumber: element.phoneNumber
       };
       i++;
     });
@@ -176,7 +182,7 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
 
   componentDidMount() {
 
-    fetch(baseUrl + `ClosedWaterSupplyInstallation/GetByOrganizatoinId/${getCookie("organizationId")}`, {
+    fetch(baseUrl + `Organization/Get`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -209,4 +215,4 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
   }
 }
 
-export default ClosedWaterSupplyInstallationListByOrganizationId;
+export default OrganizationListAdmin;

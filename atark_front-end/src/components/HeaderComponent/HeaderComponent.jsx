@@ -6,7 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Link } from 'react-router-dom';
+import { getCookie } from '../baseUrl';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,17 +41,17 @@ function a11yProps(index) {
   };
 }
 
-function LinkTab(props) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
-}
+// function LinkTab(props) {
+//   return (
+//     <Tab
+//       component="a"
+//       onClick={(event) => {
+//         event.preventDefault();
+//       }}
+//       {...props}
+//     />
+//   );
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,7 +59,34 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
-
+function Tabssss1() {
+  
+  if (getCookie('role') === "user") {
+    return (
+      <div>
+        <Tab label="УЗВ" href="/ClosedWaterSupplyInstallationListByOrganizationId" {...a11yProps(0)} />
+        <Tab label="басейни" href="/PoolListByOrganizationId" {...a11yProps(1)} />
+        <Tab label="вид риби" href="/KindOfFishList" {...a11yProps(4)} />
+        <Tab label="Профіль" href="/" {...a11yProps(7)} />
+      </div>
+    )
+  }
+  else{
+    return (
+      <div>
+        <Tab label="Організація" href="/OrganizationListAdmin" {...a11yProps(0)} />
+        <Tab label="УЗВ" href="/ClosedWaterSupplyInstallationListAdmin" {...a11yProps(1)} />
+        <Tab label="Басейни" href="/PoolListAdmin" {...a11yProps(2)} />
+        <Tab label="Риба" href="/FishListAdmin" {...a11yProps(3)} />
+        <Tab label="Стада" href="/HerdListAdmin" {...a11yProps(4)} />
+        <Tab label="Дойки" href="/MilkingListAdmin" {...a11yProps(5)} />
+        <Tab label="Вагітності" href="/PregancyListAdmin" {...a11yProps(6)} />
+        <Tab label="Стани УЗВ" href="/StateOfTheSystemListAdmin" {...a11yProps(7)} />
+        <Tab label="Профіль" href="/" {...a11yProps(7)} />
+      </div>
+    )
+  }
+};
 export default function NavTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -68,6 +95,8 @@ export default function NavTabs() {
     setValue(newValue);
   };
 
+
+  
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -77,13 +106,7 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <Tab label="УЗВ" href="/ClosedWaterSupplyInstallationListByOrganizationId" {...a11yProps(0)} />
-          <Tab label="басейни" href="/PoolListByOrganizationId" {...a11yProps(1)} />
-          <Tab label="вид риби" href="/KindOfFishList" {...a11yProps(4)} />
-          <Tab label="вагітність" href="/spam1" {...a11yProps(5)} />
-          <Tab label="дойка" href="/spam1" {...a11yProps(6)} />
-          <Tab label="організація" href="/spam1" {...a11yProps(7)} />
-
+          {Tabssss1()}
         </Tabs>
       </AppBar>
     </div>

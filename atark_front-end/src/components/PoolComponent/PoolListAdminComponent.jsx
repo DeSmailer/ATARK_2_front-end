@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { baseUrl } from '../baseUrl';
-import { Link } from 'react-router-dom';
+import { baseUrl, getCookie } from '../baseUrl';
 import {Button } from 'reactstrap';
 
-class PoolListByPoolId extends Component {
+class PoolListAdmin extends Component {
 
   constructor(props) {
     super(props);
@@ -27,73 +26,38 @@ class PoolListByPoolId extends Component {
     this.setSelection = this.setSelection.bind(this);
     this.selectRout = this.selectRout.bind(this);
     this.deleteSucces = this.deleteSucces.bind(this);
-
-
   }
   setSelection(row) {
     this.setState({ currentRow: row });
     console.log(this.state.currentRow)
+    console.log("Ид" + this.state.currentRow.poolId)
   }
 
   dataGridDemo(state) {
     return (
       <div>
         <div>
-          
+
         </div>
         <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
+        <div >
           <Button onClick={() => this.selectRout()} className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             вміст басейну
             </Button>
+        
           <Button onClick={this.deleteSucces} className="btn btn-primary"
                     style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити басейн
             </Button>
-        <Link to={`/AddPoolByCWIId/${this.props.match.params.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати басейн
-            </Button>
-        </Link>
-        <Link to={`/EditPoolByCWIId/${this.state.currentRow.poolId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Змінити басейн
-            </Button>
-        </Link>
+        </div>
+
       </div >
     );
-  }
-
-  selectRout() {
-    if (this.state.currentRow.whoIsInThePool !== "herd"){
-      console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
-    }
-    else if (this.state.currentRow.whoIsInThePool === "herd"){
-      console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
-    }
-  }
-  fillRows(result) {
-    var res = [];
-    var i = 0;
-    result.forEach(element => {
-      res[i] = {
-        id: i,
-        poolId: element.poolId,
-        closedWaterSupplyInstallationId: element.closedWaterSupplyInstallationId,
-        whoIsInThePool: element.whoIsInThePool,
-        volume: element.volume
-      };
-      i++;
-    });
-    return res;
   }
   deleteSucces() {
     fetch(baseUrl + `Pool/Delete/${this.state.currentRow.poolId}`, {
@@ -117,8 +81,35 @@ class PoolListByPoolId extends Component {
         }
       );
   }
+  selectRout() {
+    if (this.state.currentRow.whoIsInThePool !== "herd") {
+      console.log(this.state.currentRow.whoIsInThePool);
+      window.location.href = `/FishListByPoolId/${this.state.currentRow.poolId}`
+    }
+    else if (this.state.currentRow.whoIsInThePool === "herd") {
+      console.log(this.state.currentRow.whoIsInThePool);
+      window.location.href = `/HerdListByPoolId/${this.state.currentRow.poolId}`
+    }
+  }
+
+  fillRows(result) {
+    var res = [];
+    var i = 0;
+    result.forEach(element => {
+      res[i] = {
+        id: i,
+        poolId: element.poolId,
+        closedWaterSupplyInstallationId: element.closedWaterSupplyInstallationId,
+        whoIsInThePool: element.whoIsInThePool,
+        volume: element.volume
+      };
+      i++;
+    });
+    return res;
+  }
+
   componentDidMount() {
-    fetch(baseUrl + "Pool/GetByCWIIdId/" + this.props.match.params.closedWaterSupplyInstallationId, {
+    fetch(baseUrl + `Pool/Get`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -151,4 +142,4 @@ class PoolListByPoolId extends Component {
   }
 }
 
-export default PoolListByPoolId;
+export default PoolListAdmin;

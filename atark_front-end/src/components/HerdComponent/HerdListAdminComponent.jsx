@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { baseUrl, getCookie } from '../baseUrl';
+import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
-class KindOfFishList extends Component {
+class HerdListAdmin extends Component {
 
   constructor(props) {
     super(props);
@@ -12,8 +12,12 @@ class KindOfFishList extends Component {
     this.state = {
 
       columns: [
+        { field: 'herdId', headerName: 'HerdId', width: 160 },
         { field: 'kindOfFishId', headerName: 'KindOfFishId', width: 160 },
-        { field: 'kind', headerName: 'Kind', width: 160 }
+        { field: 'dateOfBirth', headerName: 'DateOfBirth', width: 160 },
+        { field: 'poolIdNow', headerName: 'PoolIdNow', width: 160 },
+        { field: 'averageWeightOfAnIndividual', headerName: 'AverageWeightOfAnIndividual', width: 160 },
+        { field: 'quantity', headerName: 'Quantity', width: 160 }
       ],
       rows: [],
       currentRow: {
@@ -33,15 +37,12 @@ class KindOfFishList extends Component {
   dataGridDemo(state) {
     return (
       <div>
-        <div>
-          
-        </div>
         <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/fishEditForm/${ getCookie("organizationId")}`}>
+        <Link to={`/fishEditForm/${this.state.currentRow.fishId}`}>
           <div >
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
@@ -58,8 +59,12 @@ class KindOfFishList extends Component {
     result.forEach(element => {
       res[i] = {
         id: i,
+        herdId: element.herdId,
         kindOfFishId: element.kindOfFishId,
-        kind: element.kind
+        dateOfBirth: element.dateOfBirth,
+        poolIdNow: element.poolIdNow,
+        averageWeightOfAnIndividual: element.averageWeightOfAnIndividual,
+        quantity: element.quantity
       };
       i++;
     });
@@ -68,7 +73,7 @@ class KindOfFishList extends Component {
 
   componentDidMount() {
 
-    fetch(baseUrl + `KindOfFish/Get`, {
+    fetch(baseUrl + `Herd/Get`, {
       method: "GET",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -101,4 +106,4 @@ class KindOfFishList extends Component {
   }
 }
 
-export default KindOfFishList;
+export default HerdListAdmin;

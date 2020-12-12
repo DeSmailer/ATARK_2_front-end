@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { baseUrl, getCookie } from '../baseUrl';
-import { Link } from 'react-router-dom';
-import { Label, Col, Row, Button } from 'reactstrap';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { baseUrl } from '../baseUrl';
+import { Button } from 'reactstrap';
 
 class PregancyListByFishId extends Component {
 
@@ -55,11 +53,11 @@ class PregancyListByFishId extends Component {
   }
 
   selectRout() {
-    if (this.state.currentRow.whoIsInThePool == "fish"){
+    if (this.state.currentRow.whoIsInThePool === "fish"){
       console.log(this.state.currentRow.whoIsInThePool);
       window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
     }
-    else if (this.state.currentRow.whoIsInThePool == "herd"){
+    else if (this.state.currentRow.whoIsInThePool === "herd"){
       console.log(this.state.currentRow.whoIsInThePool);
       window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
     }
