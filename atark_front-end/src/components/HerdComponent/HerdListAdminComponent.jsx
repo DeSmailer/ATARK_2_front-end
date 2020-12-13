@@ -27,6 +27,29 @@ class HerdListAdmin extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
+    this.deleteHerd = this.deleteHerd.bind(this);
+  }
+  deleteHerd() {
+    fetch(baseUrl + `Herd/Delete/${this.state.currentRow.herdId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
+
+        }
+      );
   }
   setSelection(row) {
     this.setState({ currentRow: row });
@@ -42,14 +65,12 @@ class HerdListAdmin extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/fishEditForm/${this.state.currentRow.fishId}`}>
           <div >
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Регистрация
+          <Button onClick={this.deleteHerd} className="btn btn-primary"
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Видалити Стадо
             </Button>
           </div>
-        </Link>
       </div >
     );
   }

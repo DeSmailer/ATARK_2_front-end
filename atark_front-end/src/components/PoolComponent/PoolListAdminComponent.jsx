@@ -26,7 +26,7 @@ class PoolListAdmin extends Component {
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
     this.selectRout = this.selectRout.bind(this);
-    this.deleteSucces = this.deleteSucces.bind(this);
+    this.deletePool = this.deletePool.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
@@ -46,6 +46,10 @@ class PoolListAdmin extends Component {
           />
         </div>
         <div >
+        <Button onClick={this.deletePool} className="btn btn-primary"
+                    style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Видалити басейн
+            </Button>
         <Link to={`/AddFishComponent/${this.state.currentRow.poolId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
@@ -63,16 +67,13 @@ class PoolListAdmin extends Component {
             вміст басейну
             </Button>
         
-          <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити басейн
-            </Button> */}
+           */}
         </div>
 
       </div >
     );
   }
-  deleteSucces() {
+  deletePool() {
     fetch(baseUrl + `Pool/Delete/${this.state.currentRow.poolId}`, {
       method: "DELETE",
       headers: {
@@ -90,7 +91,6 @@ class PoolListAdmin extends Component {
         },
         (error) => {
           alert(error);
-
         }
       );
   }

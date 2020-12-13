@@ -30,7 +30,7 @@ class OrganizationListAdmin extends Component {
     this.setSelection = this.setSelection.bind(this);
     this.updateRelocationPoolToPoolNow = this.updateRelocationPoolToPoolNow.bind(this);
     this.RedistributeFish = this.RedistributeFish.bind(this);
-    this.deleteSucces = this.deleteSucces.bind(this);
+    this.deleteOrganization = this.deleteOrganization.bind(this);
 
   }
   setSelection(row) {
@@ -56,12 +56,17 @@ class OrganizationListAdmin extends Component {
            Додати Організацію
             </Button>
         </Link>
+        <Button onClick={this.deleteOrganization} className="btn btn-primary"
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Видалити Організацію
+            </Button>
         <Link to={`/AddClosedWaterSupplyInstallationAdmin/${this.state.currentRow.organizationId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
             Додати УЗВ
             </Button>
         </Link>
+        
         {/* <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
@@ -82,16 +87,6 @@ class OrganizationListAdmin extends Component {
           style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
           Робота БЛ
             </Button>
-        <Button onClick={this.deleteSucces} className="btn btn-primary"
-          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Видалити УЗВ
-            </Button>
-        <Link to={`/AddClosedWaterSupplyInstallation`}>
-          <Button className="btn btn-primary"
-            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати узв
-            </Button>
-        </Link>
         <Link to={`/EditClosedWaterSupplyInstallation/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
@@ -151,8 +146,8 @@ class OrganizationListAdmin extends Component {
   }
 
 
-  deleteSucces() {
-    fetch(baseUrl + `ClosedWaterSupplyInstallation/Delete/${this.state.currentRow.closedWaterSupplyInstallationId}`, {
+  deleteOrganization() {
+    fetch(baseUrl + `Organization/Delete/${this.state.currentRow.organizationId}`, {
       method: "DELETE",
       headers: {
         'Accept': 'application/json, text/plain, */*',

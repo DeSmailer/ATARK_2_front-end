@@ -28,7 +28,7 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
     this.updateRelocationPoolToPoolNow = this.updateRelocationPoolToPoolNow.bind(this);
     this.handleSubmit1 = this.handleSubmit1.bind(this);
     this.RedistributeFish = this.RedistributeFish.bind(this);
-    this.deleteSucces = this.deleteSucces.bind(this);
+    this.deleteClosedWaterSupplyInstallation = this.deleteClosedWaterSupplyInstallation.bind(this);
 
   }
   setSelection(row) {
@@ -48,6 +48,10 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
+        <Button onClick={this.deleteClosedWaterSupplyInstallation} className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Видалити УЗВ
+            </Button>
         <Link to={`/AddPoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
@@ -141,9 +145,7 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
         }
       );
   }
-
-
-  deleteSucces() {
+  deleteClosedWaterSupplyInstallation() {
     fetch(baseUrl + `ClosedWaterSupplyInstallation/Delete/${this.state.currentRow.closedWaterSupplyInstallationId}`, {
         method: "DELETE",
         headers: {

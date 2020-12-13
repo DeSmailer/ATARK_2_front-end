@@ -30,7 +30,7 @@ class FishListAdmin extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
-    this.deleteSucces = this.deleteSucces.bind(this);
+    this.deleteFish = this.deleteFish.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
@@ -47,6 +47,10 @@ class FishListAdmin extends Component {
           />
           
         </div>
+        <Button onClick={this.deleteFish} className="btn btn-primary"
+                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Видалити рибину
+            </Button>
         <Link to={`/AddMilkingAdmin/${this.state.currentRow.fishId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
@@ -71,10 +75,7 @@ class FishListAdmin extends Component {
               вагітності
             </Button>
         </Link>
-          <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити рибину
-            </Button>
+          
         <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
@@ -90,7 +91,7 @@ class FishListAdmin extends Component {
       </div >
     );
   }
-  deleteSucces() {
+  deleteFish() {
     fetch(baseUrl + `Fish/Delete/${this.state.currentRow.fishId}`, {
       method: "DELETE",
       headers: {

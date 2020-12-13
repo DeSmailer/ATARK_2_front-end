@@ -24,11 +24,12 @@ class PregancyListAdmin extends Component {
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
     this.selectRout = this.selectRout.bind(this);
+    this.deletePregancy = this.deletePregancy.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
     console.log(this.state.currentRow)
-    console.log("Ид" + this.state.currentRow.milkingId)
+    console.log("Ид" + this.state.currentRow.pregnancyId)
   }
 
   dataGridDemo(state) {
@@ -43,15 +44,35 @@ class PregancyListAdmin extends Component {
           />
         </div>
         <div >
-          <Button onClick={() => this.selectRout()} className="btn btn-primary"
-            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            вміст басейну басейні
+          <Button onClick={this.deletePregancy} className="btn btn-primary"
+            style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Видалити Вагітність
             </Button>
         </div>
       </div >
     );
   }
-
+  deletePregancy() {
+    fetch(baseUrl + `Pregnancy/Delete/${this.state.currentRow.pregnancyId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
+        }
+      );
+  }
   selectRout() {
     if (this.state.currentRow.whoIsInThePool === "fish") {
       console.log(this.state.currentRow.whoIsInThePool);
