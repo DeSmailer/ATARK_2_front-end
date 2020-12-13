@@ -24,10 +24,11 @@ class OrganizationListAdmin extends Component {
       }
     }
 
+
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
     this.updateRelocationPoolToPoolNow = this.updateRelocationPoolToPoolNow.bind(this);
-    this.handleSubmit1 = this.handleSubmit1.bind(this);
     this.RedistributeFish = this.RedistributeFish.bind(this);
     this.deleteSucces = this.deleteSucces.bind(this);
 
@@ -53,6 +54,12 @@ class OrganizationListAdmin extends Component {
           <Button className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
            Додати Організацію
+            </Button>
+        </Link>
+        <Link to={`/AddClosedWaterSupplyInstallationAdmin/${this.state.currentRow.organizationId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати УЗВ
             </Button>
         </Link>
         {/* <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
@@ -94,7 +101,7 @@ class OrganizationListAdmin extends Component {
       </div >
     );
   }
-  handleSubmit1 = event => {
+  handleSubmit = event => {
     this.updateRelocationPoolToPoolNow();
     event.preventDefault();
   }

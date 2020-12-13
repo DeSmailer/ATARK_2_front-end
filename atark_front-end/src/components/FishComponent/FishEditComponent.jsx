@@ -87,7 +87,6 @@ class FishEdit extends Component {
             );
     }
     componentDidMount() {
-        console.log(this.props.match.params.FishId);
         fetch(baseUrl + "Fish/GetById/" + this.props.match.params.FishId,
             {
                 method: "GET",
