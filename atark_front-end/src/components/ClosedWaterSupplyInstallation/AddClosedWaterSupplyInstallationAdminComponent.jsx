@@ -34,11 +34,7 @@ class AddClosedWaterSupplyInstallationAdmin extends Component {
             credentials: 'same-origin'
         })
             .then(
-                (response) => {
-                    {
-                        alert("Ok");
-                    }
-                },
+                alert("Ok"),
                 (error) => {
                     alert(error);
 

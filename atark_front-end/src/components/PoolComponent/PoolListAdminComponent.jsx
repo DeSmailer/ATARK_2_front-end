@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import {Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class PoolListAdmin extends Component {
 
@@ -45,7 +46,19 @@ class PoolListAdmin extends Component {
           />
         </div>
         <div >
-          <Button onClick={() => this.selectRout()} className="btn btn-primary"
+        <Link to={`/AddFishComponent/${this.state.currentRow.poolId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Додати рибину
+            </Button>
+        </Link>
+        <Link to={`/AddHerdAdminComponent/${this.state.currentRow.poolId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Додати Стадо
+            </Button>
+        </Link>
+          {/* <Button onClick={() => this.selectRout()} className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             вміст басейну
             </Button>
@@ -53,7 +66,7 @@ class PoolListAdmin extends Component {
           <Button onClick={this.deleteSucces} className="btn btn-primary"
                     style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити басейн
-            </Button>
+            </Button> */}
         </div>
 
       </div >

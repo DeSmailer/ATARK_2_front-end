@@ -48,7 +48,13 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+        <Link to={`/AddPoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Додати басейн
+            </Button>
+        </Link>
+        {/* <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Басейни в узв
@@ -83,7 +89,7 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Змінити УЗВ
             </Button>
-        </Link>
+        </Link> */}
       </div >
     );
   }
