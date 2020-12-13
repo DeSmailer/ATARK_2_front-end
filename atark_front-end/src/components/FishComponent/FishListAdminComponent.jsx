@@ -41,12 +41,19 @@ class FishListAdmin extends Component {
   dataGridDemo(state) {
     return (
       <div>
-        <div style={{ height: 620, width: '100%' }}>
+        <div style={{ height: 640, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
+          
         </div>
-        <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
+        <Link to={`/AddMilkingAdmin/${this.state.currentRow.fishId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Додати Дойку
+            </Button>
+        </Link>
+        {/* <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               дойки
@@ -73,7 +80,7 @@ class FishListAdmin extends Component {
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Додати рибину
             </Button>
-        </Link>
+        </Link> */}
       </div >
     );
   }

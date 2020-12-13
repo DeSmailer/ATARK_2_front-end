@@ -30,6 +30,7 @@ import StateOfTheSystemListAdmin from './StateOfTheSystemComponent/StateOfTheSys
 import AddOrganizationAdmin from './OrganizationComponent/AddOrganizationAdminComponent'
 import AddClosedWaterSupplyInstallationAdmin from './ClosedWaterSupplyInstallation/AddClosedWaterSupplyInstallationAdminComponent'
 import AddHerdAdminComponent from './HerdComponent/AddHerdAdminComponent'
+import AddMilkingAdmin from './MilkingComponent/AddMilkingAdminComponent'
 
 
 
@@ -85,6 +86,7 @@ class Main extends Component {
                     <Route path="/AddHerdAdminComponent/:poolId" component={AddHerdAdminComponent}></Route>
                     
                     <Route path="/MilkingListAdmin" component={MilkingListAdmin}></Route>
+                    <Route path="/AddMilkingAdmin/:fishId" component={AddMilkingAdmin}></Route>
 
                     <Route path="/PregancyListAdmin" component={PregancyListAdmin}></Route>
 
