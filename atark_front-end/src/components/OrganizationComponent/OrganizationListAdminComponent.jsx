@@ -12,7 +12,7 @@ class OrganizationListAdmin extends Component {
     this.state = {
       columns: [
         { field: 'organizationId', headerName: 'OrganizationId', width: 130 },
-        { field: 'mail', headerName: 'Mail', width: 200 },
+        { field: 'mail', headerName: 'Mail', width: 240 },
         { field: 'password', headerName: 'Password', width: 160 },
         { field: 'name', headerName: 'Name', width: 180 },
         { field: 'foundationDate', headerName: 'FoundationDate', width: 180 },
@@ -49,7 +49,13 @@ class OrganizationListAdmin extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+        <Link to={`/AddOrganizationAdmin`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+           Додати Організацію
+            </Button>
+        </Link>
+        {/* <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
             Басейни в узв
@@ -84,7 +90,7 @@ class OrganizationListAdmin extends Component {
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
             Змінити УЗВ
             </Button>
-        </Link>
+        </Link> */}
       </div >
     );
   }

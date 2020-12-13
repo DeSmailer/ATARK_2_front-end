@@ -27,6 +27,7 @@ import HerdListAdmin from './HerdComponent/HerdListAdminComponent'
 import MilkingListAdmin from './MilkingComponent/MilkingListAdminComponent'
 import PregancyListAdmin from './PregnancyComponent/PregancyListAdminComponent'
 import StateOfTheSystemListAdmin from './StateOfTheSystemComponent/StateOfTheSystemListAdminComponent'
+import AddOrganizationAdmin from './OrganizationComponent/AddOrganizationAdminComponent'
 
 
 
@@ -69,7 +70,8 @@ class Main extends Component {
                     {/* админ */}
 
                     <Route path="/OrganizationListAdmin" component={OrganizationListAdmin}></Route>
-
+                    <Route path="/AddOrganizationAdmin" component={AddOrganizationAdmin}></Route>
+                    
                     <Route path="/ClosedWaterSupplyInstallationListAdmin" component={ClosedWaterSupplyInstallationListAdmin}></Route>
 
                     <Route path="/PoolListAdmin" component={PoolListAdmin}></Route>

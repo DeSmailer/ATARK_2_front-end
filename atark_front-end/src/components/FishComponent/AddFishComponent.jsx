@@ -96,19 +96,24 @@ class AddFish extends Component {
                         <h2>Додати рибину</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> вид риби </label>
-                                <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
-                                <label className="form-group" style={{ width: "600px" }}> стать </label>
-                                <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
-                                <label className="form-group" style={{ width: "600px" }}> дата народження </label>
-                                <input className="form-control" type='datetime-local' id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
-
-                                <label className="form-group" style={{ width: "600px" }}> вага </label>
-                                <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
-                                <label className="form-group" style={{ width: "600px" }}> Зрілість </label>
-                                <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
-                                <label className="form-group" style={{ width: "600px" }}> Стан </label>
-                                <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
+                                <label className="form-group" style={{ width: "600px" }}> вид риби
+                                    <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}> стать
+                                    <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}> дата народження
+                                    <input className="form-control" type='datetime-local' id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}> вага
+                                    <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}> Зрілість
+                                    <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}> Стан
+                                    <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
+                                </label>
                             </div>
                             <button
 
