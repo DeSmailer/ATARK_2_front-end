@@ -53,6 +53,12 @@ class FishListAdmin extends Component {
               Додати Дойку
             </Button>
         </Link>
+        <Link to={`/AddPregancyAdmin/${this.state.currentRow.fishId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Додати Вагітність
+            </Button>
+        </Link>
         {/* <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
