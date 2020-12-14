@@ -161,7 +161,7 @@ class FishEdit extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Добавить
+                            > Змінити
                     </button>
                         </form>
                     </div>

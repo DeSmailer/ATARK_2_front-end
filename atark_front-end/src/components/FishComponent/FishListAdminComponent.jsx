@@ -45,22 +45,28 @@ class FishListAdmin extends Component {
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
-          
+
         </div>
+        <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Змінити рибину
+            </Button>
+        </Link>
         <Button onClick={this.deleteFish} className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити рибину
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Видалити рибину
             </Button>
         <Link to={`/AddMilkingAdmin/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати Дойку
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати Дойку
             </Button>
         </Link>
         <Link to={`/AddPregancyAdmin/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати Вагітність
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати Вагітність
             </Button>
         </Link>
         {/* <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
