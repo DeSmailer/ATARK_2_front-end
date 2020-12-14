@@ -32,6 +32,8 @@ import AddClosedWaterSupplyInstallationAdmin from './ClosedWaterSupplyInstallati
 import AddHerdAdminComponent from './HerdComponent/AddHerdAdminComponent'
 import AddMilkingAdmin from './MilkingComponent/AddMilkingAdminComponent'
 import AddPregancyAdmin from './PregnancyComponent/AddPregancyAdminComponent'
+import EditOrganizationAdmin from './OrganizationComponent/EditOrganizationAdminComponent'
+import EditClosedWaterSupplyInstallationAdmin from './ClosedWaterSupplyInstallation/EditClosedWaterSupplyInstallationAdminComponent'
 
 
 
@@ -75,9 +77,11 @@ class Main extends Component {
 
                     <Route path="/OrganizationListAdmin" component={OrganizationListAdmin}></Route>
                     <Route path="/AddOrganizationAdmin" component={AddOrganizationAdmin}></Route>
+                    <Route path="/EditOrganizationAdmin/:organizationId" component={EditOrganizationAdmin}></Route>
                     
                     <Route path="/ClosedWaterSupplyInstallationListAdmin" component={ClosedWaterSupplyInstallationListAdmin}></Route>
                     <Route path="/AddClosedWaterSupplyInstallationAdmin/:organizationId" component={AddClosedWaterSupplyInstallationAdmin}></Route>
+                    <Route path="/EditClosedWaterSupplyInstallationAdmin/:closedWaterSupplyInstallationId" component={EditClosedWaterSupplyInstallationAdmin}></Route>
                     
                     <Route path="/PoolListAdmin" component={PoolListAdmin}></Route>
 

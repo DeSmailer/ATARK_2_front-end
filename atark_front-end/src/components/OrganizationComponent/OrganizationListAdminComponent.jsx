@@ -56,6 +56,12 @@ class OrganizationListAdmin extends Component {
            Додати Організацію
             </Button>
         </Link>
+        <Link to={`/EditOrganizationAdmin/${this.state.currentRow.organizationId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Змінити Організацію
+            </Button>
+        </Link>
         <Button onClick={this.deleteOrganization} className="btn btn-primary"
           style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
           Видалити Організацію

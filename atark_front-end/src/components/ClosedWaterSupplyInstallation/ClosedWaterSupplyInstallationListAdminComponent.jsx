@@ -48,6 +48,12 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
+        <Link to={`/EditClosedWaterSupplyInstallationAdmin/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Змінити УЗВ
+            </Button>
+        </Link>
         <Button onClick={this.deleteClosedWaterSupplyInstallation} className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити УЗВ

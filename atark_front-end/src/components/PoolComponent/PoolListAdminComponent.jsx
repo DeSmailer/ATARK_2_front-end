@@ -46,6 +46,12 @@ class PoolListAdmin extends Component {
           />
         </div>
         <div >
+        <Link to={`/EditPoolByCWIId/${this.state.currentRow.poolId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Змінити басейн
+            </Button>
+        </Link>
         <Button onClick={this.deletePool} className="btn btn-primary"
                     style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Видалити басейн
@@ -62,6 +68,7 @@ class PoolListAdmin extends Component {
               Додати Стадо
             </Button>
         </Link>
+        
           {/* <Button onClick={() => this.selectRout()} className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             вміст басейну
