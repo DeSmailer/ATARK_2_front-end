@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { baseUrl, getCookie } from '../baseUrl';
+import { baseUrl } from '../baseUrl';
 
 
 class EditClosedWaterSupplyInstallationAdmin extends Component {

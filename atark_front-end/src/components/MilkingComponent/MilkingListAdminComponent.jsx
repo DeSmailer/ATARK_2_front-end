@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class MilkingListAdmin extends Component {
 
@@ -45,6 +46,12 @@ class MilkingListAdmin extends Component {
           />
         </div>
         <div >
+        <Link to={`/EditMilkingAdminComponent/${this.state.currentRow.milkingId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Змінити Дойку
+            </Button>
+        </Link>
           <Button onClick={this.deleteMilking} className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
             Видалити Дойку

@@ -35,6 +35,9 @@ import AddPregancyAdmin from './PregnancyComponent/AddPregancyAdminComponent'
 import EditOrganizationAdmin from './OrganizationComponent/EditOrganizationAdminComponent'
 import EditClosedWaterSupplyInstallationAdmin from './ClosedWaterSupplyInstallation/EditClosedWaterSupplyInstallationAdminComponent'
 import EditHerdAdmin from './HerdComponent/EditHerdAdminComponent'
+import EditMilkingAdminComponent from './MilkingComponent/EditMilkingAdminComponent'
+import EditPregnancyAdmin from './PregnancyComponent/EditPregancyAdminComponent'
+import EditStateOfTheSystemAdmin from './StateOfTheSystemComponent/EditPregancyAdminComponent'
 
 
 
@@ -94,13 +97,16 @@ class Main extends Component {
                     
                     <Route path="/MilkingListAdmin" component={MilkingListAdmin}></Route>
                     <Route path="/AddMilkingAdmin/:fishId" component={AddMilkingAdmin}></Route>
+                    <Route path="/EditMilkingAdminComponent/:milkingId" component={EditMilkingAdminComponent}></Route>
 
                     <Route path="/PregancyListAdmin" component={PregancyListAdmin}></Route>
                     <Route path="/AddPregancyAdmin/:fishId" component={AddPregancyAdmin}></Route>
-
+                    <Route path="/EditPregnancyAdmin/:pregnancyId" component={EditPregnancyAdmin }></Route>
+                    
                     <Route path="/StateOfTheSystemListAdmin" component={StateOfTheSystemListAdmin}></Route>
+                    <Route path="/EditStateOfTheSystemAdmin/:stateOfTheSystemId" component={EditStateOfTheSystemAdmin}></Route>
 
-
+                    
                     
                     <Redirect to="/signIn" component={LogIn}></Redirect>
                 </Switch>

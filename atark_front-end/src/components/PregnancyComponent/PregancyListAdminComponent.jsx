@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class PregancyListAdmin extends Component {
 
@@ -28,8 +29,6 @@ class PregancyListAdmin extends Component {
   }
   setSelection(row) {
     this.setState({ currentRow: row });
-    console.log(this.state.currentRow)
-    console.log("Ид" + this.state.currentRow.pregnancyId)
   }
 
   dataGridDemo(state) {
@@ -44,6 +43,12 @@ class PregancyListAdmin extends Component {
           />
         </div>
         <div >
+        <Link to={`/EditPregnancyAdmin/${this.state.currentRow.pregnancyId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Змінити Вагітність
+            </Button>
+        </Link>
           <Button onClick={this.deletePregancy} className="btn btn-primary"
             style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
             Видалити Вагітність

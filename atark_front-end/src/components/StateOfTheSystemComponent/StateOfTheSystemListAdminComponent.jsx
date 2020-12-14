@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class StateOfTheSystemListAdmin extends Component {
 
@@ -24,12 +25,9 @@ class StateOfTheSystemListAdmin extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
-    this.selectRout = this.selectRout.bind(this);
   }
   setSelection(row) {
     this.setState({ currentRow: row });
-    console.log(this.state.currentRow)
-    console.log("Ид" + this.state.currentRow.milkingId)
   }
 
   dataGridDemo(state) {
@@ -44,24 +42,15 @@ class StateOfTheSystemListAdmin extends Component {
           />
         </div>
         <div >
-          <Button onClick={() => this.selectRout()} className="btn btn-primary"
-            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            вміст басейну басейні
+        <Link to={`/EditStateOfTheSystemAdmin/${this.state.currentRow.stateOfTheSystemId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Змінити Стан УЗВ
             </Button>
+        </Link>
         </div>
       </div >
     );
-  }
-
-  selectRout() {
-    if (this.state.currentRow.whoIsInThePool === "fish") {
-      console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href = `/FishListByPoolId/${this.state.currentRow.poolId}`
-    }
-    else if (this.state.currentRow.whoIsInThePool === "herd") {
-      console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href = `/HerdListByPoolId/${this.state.currentRow.poolId}`
-    }
   }
 
   fillRows(result) {
