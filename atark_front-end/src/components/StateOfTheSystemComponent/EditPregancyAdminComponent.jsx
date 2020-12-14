@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import format from 'react-date-object';
 
 class EditStateOfTheSystemAdmin extends Component {
 
@@ -46,7 +47,7 @@ class EditStateOfTheSystemAdmin extends Component {
                         isLoaded: true,
                         Temperature: result.temperature,
                         OxygenLevel: result.oxygenLevel,
-                        DateOfLastCheck: result.dateOfLastCheck.toISOString(),
+                        DateOfLastCheck: result.dateOfLastCheck.slice(0, 19),
                     });
                 },
                 (error) => {
