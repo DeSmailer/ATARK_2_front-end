@@ -23,32 +23,43 @@ class KindOfFishList extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
+    this.deleteKindOfFish = this.deleteKindOfFish.bind(this);
+
+
   }
   setSelection(row) {
     this.setState({ currentRow: row });
     console.log(this.state.currentRow)
-    console.log("Ид" + this.state.currentRow.fishId)
+    console.log("Ид" + this.state.currentRow.kindOfFishId)
   }
 
   dataGridDemo(state) {
     return (
       <div>
         <div>
-          
+
         </div>
         <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/fishEditForm/${ getCookie("organizationId")}`}>
-          <div >
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Регистрация
+        <Link to={`/AddKindOfFish`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати Вид Риби
             </Button>
-          </div>
         </Link>
+        <Link to={`/EditKindOfFish/${this.state.currentRow.kindOfFishId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Змінити Вид Риби
+            </Button>
+        </Link>
+        <Button onClick={this.deleteKindOfFish} className="btn btn-primary"
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Видалити Вид Риби
+            </Button>
       </div >
     );
   }
@@ -65,7 +76,28 @@ class KindOfFishList extends Component {
     });
     return res;
   }
+  deleteKindOfFish() {
+    fetch(baseUrl + `KindOfFish/Delete/${this.state.currentRow.kindOfFishId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
 
+        }
+      );
+  }
   componentDidMount() {
 
     fetch(baseUrl + `KindOfFish/Get`, {

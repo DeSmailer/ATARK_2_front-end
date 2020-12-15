@@ -38,6 +38,8 @@ import EditHerdAdmin from './HerdComponent/EditHerdAdminComponent'
 import EditMilkingAdminComponent from './MilkingComponent/EditMilkingAdminComponent'
 import EditPregnancyAdmin from './PregnancyComponent/EditPregancyAdminComponent'
 import EditStateOfTheSystemAdmin from './StateOfTheSystemComponent/EditPregancyAdminComponent'
+import AddKindOfFish from './KindOfFishComponent/AddKindOfFishComponent'
+import EditKindOfFish from './KindOfFishComponent/EditKindOfFishComponent'
 
 
 
@@ -69,7 +71,9 @@ class Main extends Component {
                     <Route path="/HerdListByPoolId/:poolId" component={HerdListByPoolId}></Route>
                     
                     <Route path="/KindOfFishList" component={KindOfFishList}></Route>
-                    
+                    <Route path="/AddKindOfFish" component={AddKindOfFish}></Route>
+                    <Route path="/EditKindOfFish/:kindOfFishId" component={EditKindOfFish}></Route>
+                     
                     <Route path="/MilkinhListByFishId/:fishId" component={MilkinhListByFishId}></Route>
 
                     <Route path="/PregancyListByFishId/:fishId" component={PregancyListByFishId}></Route>

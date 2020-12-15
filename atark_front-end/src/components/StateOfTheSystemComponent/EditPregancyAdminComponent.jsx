@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
-import format from 'react-date-object';
 
 class EditStateOfTheSystemAdmin extends Component {
 

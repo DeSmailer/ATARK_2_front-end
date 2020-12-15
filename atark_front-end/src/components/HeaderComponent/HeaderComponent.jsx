@@ -7,7 +7,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { getCookie } from '../baseUrl';
-
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import { SvgIcon } from '@material-ui/core';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -60,29 +61,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Tabssss1() {
-  
+
   if (getCookie('role') === "user") {
     return (
       <div>
-        <Tab label="УЗВ" href="/ClosedWaterSupplyInstallationListByOrganizationId" {...a11yProps(0)} />
-        <Tab label="басейни" href="/PoolListByOrganizationId" {...a11yProps(1)} />
-        <Tab label="вид риби" href="/KindOfFishList" {...a11yProps(4)} />
-        <Tab label="Профіль" href="/" {...a11yProps(7)} />
+        <Tab label="УЗВ" href="/ClosedWaterSupplyInstallationListByOrganizationId" {...a11yProps(10)} />
+        <Tab label="басейни" href="/PoolListByOrganizationId" {...a11yProps(11)} />
+        <Tab label="вид риби" href="/KindOfFishList" {...a11yProps(12)} />
+        <Tab label="Профіль" href="/signIn" {...a11yProps(13)} />
       </div>
     )
   }
-  else{
+  else {
     return (
-      <div>
+      <div style={{ maxWidth: "20px" }}>
         <Tab label="Організація" href="/OrganizationListAdmin" {...a11yProps(0)} />
         <Tab label="УЗВ" href="/ClosedWaterSupplyInstallationListAdmin" {...a11yProps(1)} />
         <Tab label="Басейни" href="/PoolListAdmin" {...a11yProps(2)} />
         <Tab label="Риба" href="/FishListAdmin" {...a11yProps(3)} />
         <Tab label="Стада" href="/HerdListAdmin" {...a11yProps(4)} />
-        <Tab label="Дойки" href="/MilkingListAdmin" {...a11yProps(5)} />
-        <Tab label="Вагітності" href="/PregancyListAdmin" {...a11yProps(6)} />
-        <Tab label="Стани УЗВ" href="/StateOfTheSystemListAdmin" {...a11yProps(7)} />
-        <Tab label="Профіль" href="/" {...a11yProps(7)} />
+        <Tab label="Вид риби" href="/KindOfFishList" {...a11yProps(5)} />
+        <Tab label="Дойки" href="/MilkingListAdmin" {...a11yProps(6)} />
+        <Tab label="Вагітності" href="/PregancyListAdmin" {...a11yProps(7)} />
+        <Tab label="Стани УЗВ" href="/StateOfTheSystemListAdmin" {...a11yProps(8)} />
+        <Tab label="Профіль" href="/signIn" {...a11yProps(9)} />
       </div>
     )
   }
@@ -96,12 +98,13 @@ export default function NavTabs() {
   };
 
 
-  
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Tabs
-          variant="fullWidth"
+          style={{ backgroundColor: '#87ceeb', color: '#000' }}
+          variant="scrollable"
           value={value}
           onChange={handleChange}
           aria-label="nav tabs example"

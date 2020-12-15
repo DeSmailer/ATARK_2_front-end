@@ -16,6 +16,8 @@ class LogIn extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.changeMail = this.changeMail.bind(this);
         this.changePassword = this.changePassword.bind(this);
+        this.refresh = this.refresh.bind(this);
+
     }
     addUser(Mail, UserName/*, Password*/) {
         console.log(Mail);
@@ -30,6 +32,10 @@ class LogIn extends Component {
         this.setState({ Password: event.target.value });
     }
 
+
+    refresh() {
+        this.componentDidMount();
+    }
     returnUserId(Mail, Password) {
         const newAccount = {
             Mail: Mail,
@@ -54,6 +60,7 @@ class LogIn extends Component {
                     else {
                         document.cookie = "organizationId=" + response;
                         document.cookie = "role=user";
+                        alert('Ok');
                     }
                 },
                 (error) => {
@@ -70,6 +77,8 @@ class LogIn extends Component {
         if (this.state.Mail === "admin" && this.state.Password === "admin") {
             document.cookie = "organizationId=0";
             document.cookie = "role=admin";
+            alert('Ok');
+            this.refresh();
         }
         else {
             this.returnUserId(this.state.Mail, this.state.Password);
@@ -82,19 +91,22 @@ class LogIn extends Component {
                 <div className="col-12">
 
                 </div>
-                <div>
-                    <h2>Добавить пользователя</h2>
+                <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
+                    <h2>Логін</h2>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <input className="form-control" id="Mail" name="Mail" value={this.state.Mail} onChange={this.changeMail} />
-                            <input className="form-control" id="Password" name="Password" value={this.state.Password} onChange={this.changePassword} />
+                            <label className="form-group" style={{ width: "600px" }}> Mail
+                                <input className="form-control" id="Mail" name="Mail" value={this.state.Mail} onChange={this.changeMail} />
+                            </label>
+                            <label className="form-group" style={{ width: "600px" }}> Password
+                                <input className="form-control" id="Password" name="Password" value={this.state.Password} onChange={this.changePassword} />
+                            </label>
                         </div>
                         <button
-
                             type="submit"
                             className="btn btn-primary"
-                            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                        > Добавить
+                            style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
+                        > Войти
                     </button>
                     </form>
 

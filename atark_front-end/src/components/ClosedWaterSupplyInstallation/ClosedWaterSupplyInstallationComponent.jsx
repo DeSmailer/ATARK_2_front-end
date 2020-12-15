@@ -47,30 +47,6 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Басейни в узв
-            </Button>
-        </Link>
-        <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Стан басейів в УЗВ
-            </Button>
-        </Link>
-          <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Відкат БЛ
-            </Button>
-          <Button onClick={this.RedistributeFish} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Робота БЛ
-            </Button>
-          <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити УЗВ
-            </Button>
         <Link to={`/AddClosedWaterSupplyInstallation`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
@@ -83,6 +59,34 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
               Змінити УЗВ
             </Button>
         </Link>
+        <Button onClick={this.deleteSucces} className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Видалити УЗВ
+            </Button>
+        <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Басейни в узв
+            </Button>
+        </Link>
+        <Button onClick={this.RedistributeFish} className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Робота БЛ
+            </Button>
+        <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+            <Button className="btn btn-primary"
+                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              Стан басейів в УЗВ
+            </Button>
+        </Link>
+          <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Відкат БЛ
+            </Button>
+          
+          
+        
+        
       </div >
     );
   }
