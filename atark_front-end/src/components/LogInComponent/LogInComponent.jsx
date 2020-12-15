@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
-
-
+import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 class LogIn extends Component {
 
     constructor(props) {
@@ -17,7 +17,8 @@ class LogIn extends Component {
         this.changeMail = this.changeMail.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.refresh = this.refresh.bind(this);
-
+        this.setLanguageUA = this.setLanguageUA.bind(this);
+        this.setLanguageEN = this.setLanguageEN.bind(this);
     }
     addUser(Mail, UserName/*, Password*/) {
         console.log(Mail);
@@ -85,18 +86,27 @@ class LogIn extends Component {
         }
         event.preventDefault();
     }
+
+    setLanguageUA() {
+        document.cookie = "lang=UA";
+        alert("UA");
+    }
+    setLanguageEN() {
+        document.cookie = "lang=EN"; 
+        alert("EN");
+    }
     render() {
         return (
             <div className="container">
 
-                <div style={{ width: "600px",  marginLeft: "20%", marginTop: "10%" }}>
+                <div style={{ width: "600px", marginLeft: "20%", marginTop: "10%" }}>
                     <h2>Логін</h2>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label className="form-group" style={{ width: "600px" }}> Mail
+                            <label className="form-group" style={{ width: "600px" }}> {SetWord("Mail")} 
                                 <input className="form-control" id="Mail" name="Mail" value={this.state.Mail} onChange={this.changeMail} />
                             </label>
-                            <label className="form-group" style={{ width: "600px" }}> Password
+                            <label className="form-group" style={{ width: "600px" }}> {SetWord("Password")}
                                 <input className="form-control" id="Password" name="Password" value={this.state.Password} onChange={this.changePassword} />
                             </label>
                         </div>
@@ -104,14 +114,21 @@ class LogIn extends Component {
                             type="submit"
                             className="btn btn-primary"
                             style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                        > Войти
+                        > {SetWord("LogIn")}
                     </button>
                     </form>
 
                 </div>
-                <div style={{ width: "600px",marginLeft: "20%", marginTop: "3%" }}>
-                <h2>Language</h2>
-
+                <div style={{ width: "600px", marginLeft: "20%", marginTop: "3%" }}>
+                    <h2>{SetWord("Language")}</h2>
+                    <Button onClick={this.setLanguageUA} className="btn btn-primary"
+                        style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+                        UA
+            </Button>
+                    <Button onClick={this.setLanguageEN} className="btn btn-primary"
+                        style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+                        EN
+            </Button>
                 </div>
             </div>
         );
