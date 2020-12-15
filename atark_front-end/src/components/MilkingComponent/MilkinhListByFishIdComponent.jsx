@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class MilkinhListByFishId extends Component {
 
@@ -25,13 +26,36 @@ class MilkinhListByFishId extends Component {
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
     this.selectRout = this.selectRout.bind(this);
+    this.deleteMilking = this.deleteMilking.bind(this);
+
   }
   setSelection(row) {
     this.setState({ currentRow: row });
     console.log(this.state.currentRow)
     console.log("Ид" + this.state.currentRow.milkingId)
   }
+  deleteMilking() {
+    fetch(baseUrl + `Milking/Delete/${this.state.currentRow.milkingId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
 
+        }
+      );
+  }
   dataGridDemo(state) {
     return (
       <div>
@@ -44,9 +68,15 @@ class MilkinhListByFishId extends Component {
           />
         </div>
         <div >
-          <Button onClick={() => this.selectRout()} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            вміст басейну басейні
+          <Link to={`/EditMilkingAdminComponent/${this.state.currentRow.milkingId}`}>
+            <Button className="btn btn-primary"
+              style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+              Змінити Дойку
+            </Button>
+          </Link>
+          <Button onClick={this.deleteMilking} className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Видалити Дойку
             </Button>
         </div>
       </div >
@@ -54,13 +84,13 @@ class MilkinhListByFishId extends Component {
   }
 
   selectRout() {
-    if (this.state.currentRow.whoIsInThePool === "fish"){
+    if (this.state.currentRow.whoIsInThePool === "fish") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/FishListByPoolId/${this.state.currentRow.poolId}`
     }
-    else if (this.state.currentRow.whoIsInThePool === "herd"){
+    else if (this.state.currentRow.whoIsInThePool === "herd") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/HerdListByPoolId/${this.state.currentRow.poolId}`
     }
   }
 

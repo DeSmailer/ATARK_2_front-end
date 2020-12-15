@@ -68,13 +68,6 @@ class PoolListAdmin extends Component {
               Додати Стадо
             </Button>
         </Link>
-        
-          {/* <Button onClick={() => this.selectRout()} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            вміст басейну
-            </Button>
-        
-           */}
         </div>
 
       </div >

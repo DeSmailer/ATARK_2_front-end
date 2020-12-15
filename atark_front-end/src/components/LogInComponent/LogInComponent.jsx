@@ -88,10 +88,8 @@ class LogIn extends Component {
     render() {
         return (
             <div className="container">
-                <div className="col-12">
 
-                </div>
-                <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
+                <div style={{ width: "600px",  marginLeft: "20%", marginTop: "10%" }}>
                     <h2>Логін</h2>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
@@ -109,6 +107,10 @@ class LogIn extends Component {
                         > Войти
                     </button>
                     </form>
+
+                </div>
+                <div style={{ width: "600px",marginLeft: "20%", marginTop: "3%" }}>
+                <h2>Language</h2>
 
                 </div>
             </div>

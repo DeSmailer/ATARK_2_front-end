@@ -73,18 +73,16 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
             Робота БЛ
             </Button>
-        <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+          <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
+                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+            Відкат БЛ
+            </Button>
+            <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
               Стан басейів в УЗВ
             </Button>
         </Link>
-          <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Відкат БЛ
-            </Button>
-          
-          
         
         
       </div >

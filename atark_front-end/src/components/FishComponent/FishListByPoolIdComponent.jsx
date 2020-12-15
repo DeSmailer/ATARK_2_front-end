@@ -46,32 +46,50 @@ class FishListByPoolId extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              дойки
-            </Button>
-        </Link>
-        <Link to={`/PregancyListByFishId/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              вагітності
-            </Button>
-        </Link>
-          <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити рибину
-            </Button>
-        <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Змінити рибину
-            </Button>
-        </Link>
         <Link to={`/AddFishComponent/${this.props.match.params.poolId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати рибину
+            </Button>
+        </Link>
+        <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Змінити рибину
+            </Button>
+        </Link>
+        <Button onClick={this.deleteSucces} className="btn btn-primary"
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          Видалити рибину
+            </Button>
+        <Link to={`/PregancyListByFishId/${this.state.currentRow.fishId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            вагітності
+            </Button>
+        </Link>
+        <Link to={`/AddPregancyAdmin/${this.state.currentRow.fishId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати Вагітність
+            </Button>
+        </Link>
+        <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            дойки
+            </Button>
+        </Link>
+        <Link to={`/AddMilkingAdmin/${this.state.currentRow.fishId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Додати Дойку
+            </Button>
+        </Link>
+        <Link to={`/AddHerdAdminComponent/${this.props.match.params.poolId}`}>
             <Button className="btn btn-primary"
                     style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати рибину
+              Додати Стадо
             </Button>
         </Link>
       </div >

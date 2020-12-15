@@ -65,18 +65,18 @@ class HerdListAdmin extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-          <div >
+        <div >
           <Link to={`/EditHerdAdmin/${this.state.currentRow.herdId}`}>
             <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
+              style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
               Змінити Стадо
             </Button>
-        </Link>
+          </Link>
           <Button onClick={this.deleteHerd} className="btn btn-primary"
-          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Видалити Стадо
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            Видалити Стадо
             </Button>
-          </div>
+        </div>
       </div >
     );
   }
