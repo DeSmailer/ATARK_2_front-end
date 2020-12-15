@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 
 
 class SignUp extends Component {
-  
+
   render() {
     return (
       <Container component="main" maxWidth="xs">

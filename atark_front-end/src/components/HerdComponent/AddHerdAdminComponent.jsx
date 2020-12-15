@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class AddHerdAdmin extends Component {
 
@@ -7,11 +8,11 @@ class AddHerdAdmin extends Component {
         super(props);
 
         this.state = {
-          KindOfFishId: "",
-          DateOfBirth: "",
-          PoolIdNow: this.props.match.params.poolId,
-          AverageWeightOfAnIndividual: "",
-          Quantity: "",
+            KindOfFishId: "",
+            DateOfBirth: "",
+            PoolIdNow: this.props.match.params.poolId,
+            AverageWeightOfAnIndividual: "",
+            Quantity: "",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.changeKindOfFishId = this.changeKindOfFishId.bind(this);
@@ -26,14 +27,14 @@ class AddHerdAdmin extends Component {
     changeDateOfBirth(event) {
         this.setState({ DateOfBirth: event.target.value });
     }
-    
+
     changeAverageWeightOfAnIndividual(event) {
         this.setState({ AverageWeightOfAnIndividual: event.target.value });
     }
     changeQuantity(event) {
         this.setState({ Quantity: event.target.value });
     }
-   
+
     AddHerdAdmin() {
         const newAccount = {
             KindOfFishId: this.state.KindOfFishId,
@@ -81,22 +82,22 @@ class AddHerdAdmin extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Додати рибину</h2>
+                        <h2>{SetWord("Add herd")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> вид риби
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Kind Of Fish Id")}
                                     <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> дата народження
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Date Of Birth")}
                                     <input className="form-control" type='datetime-local' id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> PoolIdNow
-                                    <input className="form-control" id="PoolIdNow" name="PoolIdNow" value={this.state.PoolIdNow}/>
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Pool now")}
+                                    <input className="form-control" id="PoolIdNow" name="PoolIdNow" value={this.state.PoolIdNow} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> AverageWeightOfAnIndividual
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Average Weight Of An Individual")}
                                     <input className="form-control" id="AverageWeightOfAnIndividual" name="AverageWeightOfAnIndividual" value={this.state.AverageWeightOfAnIndividual} onChange={this.changeAverageWeightOfAnIndividual} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> Quantity
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Quantity")}
                                     <input className="form-control" id="Quantity" name="Quantity" value={this.state.Quantity} onChange={this.changeQuantity} />
                                 </label>
                             </div>
@@ -104,8 +105,8 @@ class AddHerdAdmin extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Добавить
-                    </button>
+                            > {SetWord("Add")}
+                            </button>
                         </form>
                     </div>
                 </div>

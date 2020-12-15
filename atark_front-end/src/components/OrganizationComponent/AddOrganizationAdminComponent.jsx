@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class AddOrganizationAdmin extends Component {
 
@@ -75,8 +76,8 @@ class AddOrganizationAdmin extends Component {
   changePhoneNumber(event) {
     this.setState({ PhoneNumber: event.target.value });
   }
-  
-  
+
+
   componentDidMount() {
 
     this.setState({
@@ -97,29 +98,29 @@ class AddOrganizationAdmin extends Component {
           <div className="col-12">
           </div>
           <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-            <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>Додати УЗВ</h2>
+            <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>{SetWord("Add Organization")}</h2>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label className="form-group" style={{ width: "600px" }}> Mail
+                <label className="form-group" style={{ width: "600px" }}> {SetWord("Mail")}
                   <input className="form-control" id="Mail" name="Mail" value={this.state.Mail} onChange={this.changeMail} />
                 </label>
-                <label className="form-group" style={{ width: "600px" }}> Password
+                <label className="form-group" style={{ width: "600px" }}> {SetWord("Password")}
                   <input className="form-control" id="Password" name="Password" value={this.state.Password} onChange={this.changePassword} />
                 </label>
-                <label className="form-group" style={{ width: "600px" }}> Name
+                <label className="form-group" style={{ width: "600px" }}> {SetWord("Name")}
                   <input className="form-control" id="Name" name="Name" value={this.state.Name} onChange={this.changeName} />
                 </label>
-                <label className="form-group" style={{ width: "600px" }}> FoundationDate
+                <label className="form-group" style={{ width: "600px" }}> {SetWord("Foundation Date")}
                   <input className="form-control" type='datetime-local' id="FoundationDate" name="FoundationDate" value={this.state.FoundationDate} onChange={this.changeFoundationDate} />
                 </label>
-                <label className="form-group" style={{ width: "600px" }}> PhoneNumber
+                <label className="form-group" style={{ width: "600px" }}> {SetWord("PhoneNumber")}
                   <input className="form-control" id="PhoneNumber" name="PhoneNumber" value={this.state.PhoneNumber} onChange={this.changePhoneNumber} />
                 </label>
                 <button
                   type="submit"
                   className="btn btn-primary"
-                  style={{ width: '20%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                > Добавить
+                  style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
+                > {SetWord("Add")}
                 </button>
               </div>
             </form>

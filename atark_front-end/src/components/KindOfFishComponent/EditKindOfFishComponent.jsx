@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class EditKindOfFish extends Component {
 
@@ -84,13 +85,13 @@ class EditKindOfFish extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Змінити AddKindOfFish</h2>
+                        <h2>{SetWord("Edit Kind Of Fish")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> Id
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Kind Of Fish Id")}
                                     <input className="form-control" id="KindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> вид риби
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Kind Of Fish")}
                                     <input className="form-control" id="Kind" name="Kind" value={this.state.Kind} onChange={this.changeKind} />
                                 </label>
                             </div>
@@ -98,8 +99,8 @@ class EditKindOfFish extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Змінити
-                    </button>
+                            > {SetWord("Edit")}
+                            </button>
                         </form>
                     </div>
                 </div>

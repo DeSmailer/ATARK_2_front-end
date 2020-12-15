@@ -92,7 +92,7 @@ class LogIn extends Component {
         alert("UA");
     }
     setLanguageEN() {
-        document.cookie = "lang=EN"; 
+        document.cookie = "lang=EN";
         alert("EN");
     }
     render() {
@@ -103,7 +103,7 @@ class LogIn extends Component {
                     <h2>Логін</h2>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label className="form-group" style={{ width: "600px" }}> {SetWord("Mail")} 
+                            <label className="form-group" style={{ width: "600px" }}> {SetWord("Mail")}
                                 <input className="form-control" id="Mail" name="Mail" value={this.state.Mail} onChange={this.changeMail} />
                             </label>
                             <label className="form-group" style={{ width: "600px" }}> {SetWord("Password")}
@@ -115,7 +115,7 @@ class LogIn extends Component {
                             className="btn btn-primary"
                             style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
                         > {SetWord("LogIn")}
-                    </button>
+                        </button>
                     </form>
 
                 </div>

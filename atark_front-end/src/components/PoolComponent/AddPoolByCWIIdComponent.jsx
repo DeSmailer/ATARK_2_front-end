@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class AddPoolByCWIId extends Component {
 
@@ -9,7 +10,7 @@ class AddPoolByCWIId extends Component {
     this.state = {
       ClosedWaterSupplyInstallationId: this.props.match.params.closedWaterSupplyInstallationId,
       Volume: "",
-      
+
       isLoaded: false,
     }
 
@@ -48,8 +49,8 @@ class AddPoolByCWIId extends Component {
   componentDidMount() {
     this.setState({
       isLoaded: true,
-  });
-}
+    });
+  }
   handleSubmit = event => {
     this.addPool();
     event.preventDefault();
@@ -73,22 +74,22 @@ class AddPoolByCWIId extends Component {
 
           </div>
           <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-            <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>Додати Басейн</h2>
+            <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>{SetWord("Add Pool")}</h2>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label className="form-group" style={{ width: "600px" }}> Узв
-                        <input className="form-control" id="Location" name="Location" value={this.state.ClosedWaterSupplyInstallationId} />
+                <label className="form-group" style={{ width: "600px" }}> {SetWord("CWSI Id")}
+                  <input className="form-control" id="Location" name="Location" value={this.state.ClosedWaterSupplyInstallationId} />
                 </label>
-                
-                <label className="form-group" style={{ width: "600px" }}> Об'єм
-                        <input className="form-control" id="Location" name="Location" value={this.state.Volume} onChange={this.changeVolume} />
+
+                <label className="form-group" style={{ width: "600px" }}> {SetWord("Volume")}
+                  <input className="form-control" id="Volume" name="Volume" value={this.state.Volume} onChange={this.changeVolume} />
                 </label>
                 <button
-                  
+
                   type="submit"
                   className="btn btn-primary"
-                    style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}
-                > Добавить
+                  style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
+                > {SetWord("Add")}
                 </button>
               </div>
             </form>

@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class HerdListAdmin extends Component {
 
@@ -69,13 +70,13 @@ class HerdListAdmin extends Component {
           <Link to={`/EditHerdAdmin/${this.state.currentRow.herdId}`}>
             <Button className="btn btn-primary"
               style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-              Змінити Стадо
+              {SetWord("Edit Herd")}
             </Button>
           </Link>
           <Button onClick={this.deleteHerd} className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Видалити Стадо
-            </Button>
+            {SetWord("Remove Herd")}
+          </Button>
         </div>
       </div >
     );

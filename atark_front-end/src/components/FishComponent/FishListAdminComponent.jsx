@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class FishListAdmin extends Component {
 
@@ -50,24 +51,24 @@ class FishListAdmin extends Component {
         <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Змінити рибину
-            </Button>
+            {SetWord("Edit fish")}
+          </Button>
         </Link>
         <Button onClick={this.deleteFish} className="btn btn-primary"
           style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Видалити рибину
-            </Button>
+          {SetWord("Remove fish")}
+        </Button>
         <Link to={`/AddMilkingAdmin/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати Дойку
-            </Button>
+            {SetWord("Add milking")}
+          </Button>
         </Link>
         <Link to={`/AddPregancyAdmin/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати Вагітність
-            </Button>
+            {SetWord("Add Pregnancy")}
+          </Button>
         </Link>
       </div >
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl, getCookie } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 
 class EditClosedWaterSupplyInstallation extends Component {
@@ -105,24 +106,24 @@ class EditClosedWaterSupplyInstallation extends Component {
 
                     </div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>Додати УЗВ</h2>
+                        <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>{SetWord("Edit")} {SetWord("CWSI")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> Організація
-                        <input className="form-control" id="Location" name="Location" value={this.state.OrganizationId} />
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("CWSI Id")}
+                                    <input className="form-control" id="Location" name="Location" value={this.state.ClosedWaterSupplyInstallationId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> УЗВ
-                        <input className="form-control" id="Location" name="Location" value={this.state.ClosedWaterSupplyInstallationId} />
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Organization Id")}
+                                    <input className="form-control" id="Location" name="Location" value={this.state.OrganizationId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> Локація
-                        <input className="form-control" id="Location" name="Location" value={this.state.Location} onChange={this.changeLocation} />
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Location")}
+                                    <input className="form-control" id="Location" name="Location" value={this.state.Location} onChange={this.changeLocation} />
                                 </label>
                                 <button
                                     className="btn btn-primary"
                                     style={{ width: '20%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
                                     type="submit"
                                 >
-                                    Змінити
+                                    {SetWord("Edit")}
                                 </button>
                             </div>
                         </form>

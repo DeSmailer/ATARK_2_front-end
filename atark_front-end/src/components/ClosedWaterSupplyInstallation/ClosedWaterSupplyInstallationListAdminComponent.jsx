@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class ClosedWaterSupplyInstallationListAdmin extends Component {
 
@@ -51,32 +52,32 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
         <Link to={`/EditClosedWaterSupplyInstallationAdmin/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Змінити УЗВ
-            </Button>
+            {SetWord("Edit")} {SetWord("CWSI")}
+          </Button>
         </Link>
         <Button onClick={this.deleteClosedWaterSupplyInstallation} className="btn btn-primary"
           style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Видалити УЗВ
-            </Button>
+          {SetWord("Remove")} {SetWord("CWSI")}
+        </Button>
         <Link to={`/AddPoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати басейн
-            </Button>
+            {SetWord("Add")} {SetWord("Pool")}
+          </Button>
         </Link>
         <Button onClick={this.RedistributeFish} className="btn btn-primary"
-          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Робота БЛ
-            </Button>
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Execute redistribution")}
+        </Button>
         <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
-          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Відкат БЛ
-            </Button>
-            <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Стан басейів в УЗВ
-            </Button>
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Roll back redistribution")}
+        </Button>
+        <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Condition of pools in CWSI")}
+          </Button>
         </Link>
       </div >
     );

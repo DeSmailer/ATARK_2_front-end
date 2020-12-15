@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class HerdListByPoolId extends Component {
 
@@ -27,13 +28,36 @@ class HerdListByPoolId extends Component {
 
     this.dataGridDemo = this.dataGridDemo.bind(this);
     this.setSelection = this.setSelection.bind(this);
+    this.deleteHerd = this.deleteHerd.bind(this);
+
   }
   setSelection(row) {
     this.setState({ currentRow: row });
     console.log(this.state.currentRow)
     console.log("Ид" + this.state.currentRow.fishId)
   }
+  deleteHerd() {
+    fetch(baseUrl + `Herd/Delete/${this.state.currentRow.herdId}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
+    })
+      .then(
+        (response) => {
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
+        },
+        (error) => {
+          alert(error);
 
+        }
+      );
+  }
   dataGridDemo(state) {
     return (
       <div>
@@ -42,14 +66,16 @@ class HerdListByPoolId extends Component {
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-        <Link to={`/fishEditForm/${this.state.currentRow.fishId}`}>
-          <div >
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Регистрация
-            </Button>
-          </div>
+        <Link to={`/EditHerdAdmin/${this.state.currentRow.herdId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Edit Herd")}
+          </Button>
         </Link>
+        <Button onClick={this.deleteHerd} className="btn btn-primary"
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Remove Herd")}
+        </Button>
       </div >
     );
   }

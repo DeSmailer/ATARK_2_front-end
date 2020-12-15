@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl, getCookie } from '../baseUrl';
-import {Button } from 'reactstrap';
+import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class PoolListByOrganizationId extends Component {
 
@@ -46,14 +47,14 @@ class PoolListByOrganizationId extends Component {
         </div>
         <div >
           <Button onClick={() => this.selectRout()} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            вміст басейну
-            </Button>
-        
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Contents")}
+          </Button>
+
           <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити басейн
-            </Button>
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Remove Pool")}
+          </Button>
         </div>
 
       </div >

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
-import {Button } from 'reactstrap';
+import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class PoolListByPoolId extends Component {
 
@@ -39,45 +40,46 @@ class PoolListByPoolId extends Component {
     return (
       <div>
         <div>
-          
+
         </div>
         <div style={{ height: 620, width: '100%' }}>
           <DataGrid rows={state.rows} columns={state.columns} pageSize={10}
             onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
           />
         </div>
-          <Button onClick={() => this.selectRout()} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            вміст басейну
-            </Button>
-          <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити басейн
-            </Button>
+        <Button onClick={() => this.selectRout()} className="btn btn-primary"
+          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Contents")}
+        </Button>
+
         <Link to={`/AddPoolByCWIId/${this.props.match.params.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати басейн
-            </Button>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Add Pool")}
+          </Button>
         </Link>
         <Link to={`/EditPoolByCWIId/${this.state.currentRow.poolId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Змінити басейн
-            </Button>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Edit Pool")}
+          </Button>
         </Link>
+        <Button onClick={this.deleteSucces} className="btn btn-primary"
+          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Remove Pool")}
+        </Button>
       </div >
     );
   }
 
   selectRout() {
-    if (this.state.currentRow.whoIsInThePool !== "herd"){
+    if (this.state.currentRow.whoIsInThePool !== "herd") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/FishListByPoolId/${this.state.currentRow.poolId}`
     }
-    else if (this.state.currentRow.whoIsInThePool === "herd"){
+    else if (this.state.currentRow.whoIsInThePool === "herd") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/HerdListByPoolId/${this.state.currentRow.poolId}`
     }
   }
   fillRows(result) {

@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { SetWord } from '../translations/Translate';
 
 class StateOfTheSystemListAdmin extends Component {
 
@@ -42,12 +43,12 @@ class StateOfTheSystemListAdmin extends Component {
           />
         </div>
         <div >
-        <Link to={`/EditStateOfTheSystemAdmin/${this.state.currentRow.stateOfTheSystemId}`}>
-          <Button className="btn btn-primary"
-            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Змінити Стан УЗВ
+          <Link to={`/EditStateOfTheSystemAdmin/${this.state.currentRow.stateOfTheSystemId}`}>
+            <Button className="btn btn-primary"
+              style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+              {SetWord("Edit State Of The System")}
             </Button>
-        </Link>
+          </Link>
         </div>
       </div >
     );

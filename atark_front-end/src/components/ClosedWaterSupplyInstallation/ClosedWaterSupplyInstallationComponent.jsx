@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl, getCookie } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
 
@@ -48,45 +49,45 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
           />
         </div>
         <Link to={`/AddClosedWaterSupplyInstallation`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати узв
-            </Button>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Add")} {SetWord("CWSI")}
+          </Button>
         </Link>
         <Link to={`/EditClosedWaterSupplyInstallation/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Змінити УЗВ
-            </Button>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Edit")} {SetWord("CWSI")}
+          </Button>
         </Link>
         <Button onClick={this.deleteSucces} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити УЗВ
-            </Button>
+          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Remove")} {SetWord("CWSI")}
+        </Button>
         <Link to={`/poolListByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Басейни в узв
-            </Button>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Pools in")} {SetWord("CWSI")}
+          </Button>
         </Link>
         <Button onClick={this.RedistributeFish} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Робота БЛ
-            </Button>
-        
-          <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Відкат БЛ
-            </Button>
-          
-          <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Стан басейів в УЗВ
-            </Button>
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Execute redistribution")}
+        </Button>
+
+        <Button onClick={this.updateRelocationPoolToPoolNow} className="btn btn-primary"
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          {SetWord("Roll back redistribution")}
+        </Button>
+
+        <Link to={`/ExpectedWeightOfFishInThePoolByCWIId/${this.state.currentRow.closedWaterSupplyInstallationId}`}>
+          <Button className="btn btn-primary"
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Condition of pools in CWSI")}
+          </Button>
         </Link>
-        
-        
+
+
       </div >
     );
   }
@@ -142,26 +143,26 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
 
   deleteSucces() {
     fetch(baseUrl + `ClosedWaterSupplyInstallation/Delete/${this.state.currentRow.closedWaterSupplyInstallationId}`, {
-        method: "DELETE",
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json; charset=UTF-8'
-        },
-        credentials: 'same-origin'
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      credentials: 'same-origin'
     })
-    .then(
+      .then(
         (response) => {
-            if (response.ok) {
-                this.componentDidMount()
-                alert("Ok");
-            }
+          if (response.ok) {
+            this.componentDidMount()
+            alert("Ok");
+          }
         },
         (error) => {
-            alert(error);
+          alert(error);
 
         }
-    );
-}
+      );
+  }
   fillRows(result) {
     var res = [];
     var i = 0;

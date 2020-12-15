@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class ExpectedWeightOfFishInThePoolByCWIId extends Component {
 
@@ -44,14 +45,14 @@ class ExpectedWeightOfFishInThePoolByCWIId extends Component {
         <Link to={`/FishListByPoolId/${this.state.currentRow.poolId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Вміст басейну зараз
-            </Button>
+            {SetWord("Contents")}
+          </Button>
         </Link>
         <Link to={`/FishListForRelocationByPoolId/${this.state.currentRow.poolId}`}>
           <Button className="btn btn-primary"
-            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Рыба для переносу
-            </Button>
+            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Fish for relocation")}
+          </Button>
         </Link>
       </div >
     );

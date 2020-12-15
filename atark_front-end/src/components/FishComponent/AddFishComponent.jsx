@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class AddFish extends Component {
 
@@ -93,25 +94,25 @@ class AddFish extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Додати рибину</h2>
+                        <h2> {SetWord("Add Fish")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> вид риби
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Kind Of Fish Id")}
                                     <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> стать
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Sex")}
                                     <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> дата народження
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Date Of Birth")}
                                     <input className="form-control" type='datetime-local' id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> вага
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Weight")}
                                     <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> Зрілість
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Adulthood")}
                                     <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> Стан
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("State")}
                                     <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
                                 </label>
                             </div>
@@ -120,8 +121,8 @@ class AddFish extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Добавить
-                    </button>
+                            > {SetWord("Add")}
+                            </button>
                         </form>
                     </div>
                 </div>

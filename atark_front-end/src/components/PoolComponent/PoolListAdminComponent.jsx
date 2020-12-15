@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
-import {Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { SetWord } from '../translations/Translate';
 
 class PoolListAdmin extends Component {
 
@@ -46,28 +47,28 @@ class PoolListAdmin extends Component {
           />
         </div>
         <div >
-        <Link to={`/EditPoolByCWIId/${this.state.currentRow.poolId}`}>
+          <Link to={`/EditPoolByCWIId/${this.state.currentRow.poolId}`}>
             <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Змінити басейн
+              style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+              {SetWord("Edit Pool")}
             </Button>
-        </Link>
-        <Button onClick={this.deletePool} className="btn btn-primary"
-                    style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-            Видалити басейн
-            </Button>
-        <Link to={`/AddFishComponent/${this.state.currentRow.poolId}`}>
+          </Link>
+          <Button onClick={this.deletePool} className="btn btn-primary"
+            style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Remove Pool")}
+          </Button>
+          <Link to={`/AddFishComponent/${this.state.currentRow.poolId}`}>
             <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати рибину
+              style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+              {SetWord("Add Fish")}
             </Button>
-        </Link>
-        <Link to={`/AddHerdAdminComponent/${this.state.currentRow.poolId}`}>
+          </Link>
+          <Link to={`/AddHerdAdminComponent/${this.state.currentRow.poolId}`}>
             <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати Стадо
+              style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+              {SetWord("Add herd")}
             </Button>
-        </Link>
+          </Link>
         </div>
 
       </div >

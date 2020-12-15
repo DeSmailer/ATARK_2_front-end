@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class EditPregnancyAdmin extends Component {
 
@@ -91,16 +92,16 @@ class EditPregnancyAdmin extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Вагітність</h2>
+                        <h2>{SetWord("Edit Pregnancy")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                            <label className="form-group" style={{ width: "600px" }}> PregnancyId
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Pregnancy Id")}
                                     <input className="form-control" id="PregnancyId" name="PregnancyId" value={this.state.PregnancyId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> FishId
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Fish Id")}
                                     <input className="form-control" id="FishId" name="FishId" value={this.state.FishId} onChange={this.changeFishId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> StartDateOfPregnancy
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Start Date Of Pregnancy")}
                                     <input className="form-control" type='datetime-local' id="StartDateOfPregnancy" name="StartDateOfPregnancy" value={this.state.StartDateOfPregnancy} onChange={this.changeStartDateOfPregnancy} />
                                 </label>
                             </div>
@@ -108,8 +109,8 @@ class EditPregnancyAdmin extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Змінити
-                    </button>
+                            > {SetWord("Edit")}
+                            </button>
                         </form>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class EditMilkingAdminComponent extends Component {
 
@@ -98,19 +99,19 @@ class EditMilkingAdminComponent extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Дойка</h2>
+                        <h2>{SetWord("Edit Milking")}</h2>
                         <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                        <label className="form-group" style={{ width: "600px" }}> MilkingId
+                            <div className="form-group">
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Milking Id")}
                                     <input className="form-control" id="MilkingId" name="MilkingId" value={this.state.MilkingId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> FishId
-                                    <input className="form-control" id="FishId" name="FishId" value={this.state.FishId} onChange={this.changeFishId}/>
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Fish Id")}
+                                    <input className="form-control" id="FishId" name="FishId" value={this.state.FishId} onChange={this.changeFishId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> MilkingDate
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Milking Date")}
                                     <input className="form-control" type='datetime-local' id="MilkingDate" name="MilkingDate" value={this.state.MilkingDate} onChange={this.changeMilkingDate} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> CaviarWeight
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Caviar Weight")}
                                     <input className="form-control" id="CaviarWeight" name="CaviarWeight" value={this.state.CaviarWeight} onChange={this.changeCaviarWeight} />
                                 </label>
                             </div>
@@ -118,8 +119,8 @@ class EditMilkingAdminComponent extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Добавить
-                    </button>
+                            > {SetWord("Edit")}
+                            </button>
                         </form>
                     </div>
                 </div>

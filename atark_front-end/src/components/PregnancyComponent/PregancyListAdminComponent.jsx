@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { SetWord } from '../translations/Translate';
 
 class PregancyListAdmin extends Component {
 
@@ -43,16 +44,16 @@ class PregancyListAdmin extends Component {
           />
         </div>
         <div >
-        <Link to={`/EditPregnancyAdmin/${this.state.currentRow.pregnancyId}`}>
-          <Button className="btn btn-primary"
-            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Змінити Вагітність
+          <Link to={`/EditPregnancyAdmin/${this.state.currentRow.pregnancyId}`}>
+            <Button className="btn btn-primary"
+              style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+              {SetWord("Edit Pregnancy")}
             </Button>
-        </Link>
+          </Link>
           <Button onClick={this.deletePregancy} className="btn btn-primary"
             style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Видалити Вагітність
-            </Button>
+            {SetWord("Remove Pregnancy")}
+          </Button>
         </div>
       </div >
     );

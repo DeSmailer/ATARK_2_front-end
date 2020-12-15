@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { SetWord } from '../translations/Translate';
 
 class PregancyListByFishId extends Component {
 
@@ -45,16 +46,16 @@ class PregancyListByFishId extends Component {
           />
         </div>
         <div >
-        <Link to={`/EditPregnancyAdmin/${this.state.currentRow.pregnancyId}`}>
-          <Button className="btn btn-primary"
-            style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Змінити Вагітність
+          <Link to={`/EditPregnancyAdmin/${this.state.currentRow.pregnancyId}`}>
+            <Button className="btn btn-primary"
+              style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+              {SetWord("Edit Pregnancy")}
             </Button>
-        </Link>
+          </Link>
           <Button onClick={this.deletePregancy} className="btn btn-primary"
             style={{ width: '12%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Видалити Вагітність
-            </Button>
+            {SetWord("Remove Pregnancy")}
+          </Button>
         </div>
       </div >
     );
@@ -81,16 +82,16 @@ class PregancyListByFishId extends Component {
       );
   }
   selectRout() {
-    if (this.state.currentRow.whoIsInThePool === "fish"){
+    if (this.state.currentRow.whoIsInThePool === "fish") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/FishListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/FishListByPoolId/${this.state.currentRow.poolId}`
     }
-    else if (this.state.currentRow.whoIsInThePool === "herd"){
+    else if (this.state.currentRow.whoIsInThePool === "herd") {
       console.log(this.state.currentRow.whoIsInThePool);
-      window.location.href =`/HerdListByPoolId/${this.state.currentRow.poolId}`
+      window.location.href = `/HerdListByPoolId/${this.state.currentRow.poolId}`
     }
   }
- 
+
   fillRows(result) {
     var res = [];
     var i = 0;

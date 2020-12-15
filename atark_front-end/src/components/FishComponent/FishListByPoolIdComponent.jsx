@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class FishListByPoolId extends Component {
 
@@ -49,48 +50,48 @@ class FishListByPoolId extends Component {
         <Link to={`/AddFishComponent/${this.props.match.params.poolId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати рибину
-            </Button>
+            {SetWord("Add Fish")}
+          </Button>
         </Link>
         <Link to={`/FishEdit/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Змінити рибину
-            </Button>
+            {SetWord("Edit fish")}
+          </Button>
         </Link>
         <Button onClick={this.deleteSucces} className="btn btn-primary"
           style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Видалити рибину
-            </Button>
+          {SetWord("Remove fish")}
+        </Button>
         <Link to={`/PregancyListByFishId/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            вагітності
-            </Button>
+            {SetWord("Pregnancy")}
+          </Button>
         </Link>
         <Link to={`/AddPregancyAdmin/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати Вагітність
-            </Button>
+            {SetWord("Add Pregnancy")}
+          </Button>
         </Link>
         <Link to={`/MilkinhListByFishId/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            дойки
-            </Button>
+            {SetWord("Milking")}
+          </Button>
         </Link>
         <Link to={`/AddMilkingAdmin/${this.state.currentRow.fishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати Дойку
-            </Button>
+            {SetWord("Add milking")}
+          </Button>
         </Link>
         <Link to={`/AddHerdAdminComponent/${this.props.match.params.poolId}`}>
-            <Button className="btn btn-primary"
-                    style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px"}}>
-              Додати Стадо
-            </Button>
+          <Button className="btn btn-primary"
+            style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+            {SetWord("Add herd")}
+          </Button>
         </Link>
       </div >
     );

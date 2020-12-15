@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class AddKindOfFish extends Component {
 
@@ -61,10 +62,10 @@ class AddKindOfFish extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Додати AddKindOfFish</h2>
+                        <h2>{SetWord("Add Kind Of Fish")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> вид риби
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Kind Of Fish")}
                                     <input className="form-control" id="Kind" name="Kind" value={this.state.Kind} onChange={this.changeKind} />
                                 </label>
                             </div>
@@ -73,8 +74,8 @@ class AddKindOfFish extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Добавить
-                    </button>
+                            > {SetWord("Add")}
+                            </button>
                         </form>
                     </div>
                 </div>

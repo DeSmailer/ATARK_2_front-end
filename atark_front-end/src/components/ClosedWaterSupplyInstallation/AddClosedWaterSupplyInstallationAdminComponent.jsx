@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class AddClosedWaterSupplyInstallationAdmin extends Component {
 
@@ -72,20 +73,20 @@ class AddClosedWaterSupplyInstallationAdmin extends Component {
 
                     </div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>Додати УЗВ</h2>
+                        <h2 style={{ alingCenter: "center", marginLeft: "150px", marginBottom: "40px" }}>{SetWord("Add")} {SetWord("CWSI")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> OrganizationId
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("OrganizationId")}
                                     <input className="form-control" id="OrganizationId" name="OrganizationId" value={this.state.OrganizationId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> Локація
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Location")}
                                     <input className="form-control" id="Location" name="Location" value={this.state.Location} onChange={this.changeLocation} />
                                 </label>
                                 <button
                                     type="submit"
                                     className="btn btn-primary"
-                                    style={{ width: '20%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                                > Добавить
+                                    style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
+                                > {SetWord("Add")}
                                 </button>
                             </div>
                         </form>

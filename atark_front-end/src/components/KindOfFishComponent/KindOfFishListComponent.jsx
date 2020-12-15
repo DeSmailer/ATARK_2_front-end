@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { baseUrl } from '../baseUrl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { SetWord } from '../translations/Translate';
 
 class KindOfFishList extends Component {
 
@@ -47,19 +48,19 @@ class KindOfFishList extends Component {
         <Link to={`/AddKindOfFish`}>
           <Button className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Додати Вид Риби
-            </Button>
+            {SetWord("Add Kind Of Fish")}
+          </Button>
         </Link>
         <Link to={`/EditKindOfFish/${this.state.currentRow.kindOfFishId}`}>
           <Button className="btn btn-primary"
             style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-            Змінити Вид Риби
-            </Button>
+            {SetWord("Edit Kind Of Fish")}
+          </Button>
         </Link>
         <Button onClick={this.deleteKindOfFish} className="btn btn-primary"
           style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
-          Видалити Вид Риби
-            </Button>
+          {SetWord("Remove Kind Of Fish")}
+        </Button>
       </div >
     );
   }

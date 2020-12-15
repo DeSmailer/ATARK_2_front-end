@@ -14,10 +14,10 @@ import { getCookie } from '../baseUrl';
 
 export const SetWord = (word) => {
   var lang = getCookie('lang');
-  if(lang === "UA"){
+  if (lang === "UA") {
     return ua[word];
   }
-  else if(lang === "EN"){
+  else if (lang === "EN") {
     return en[word];
   }
 }

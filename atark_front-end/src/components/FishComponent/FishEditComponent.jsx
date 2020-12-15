@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class FishEdit extends Component {
 
@@ -134,35 +135,44 @@ class FishEdit extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Змінити інформацію про рибину</h2>
+                        <h2>{SetWord("Edit fish information")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> Рибина </label>
-                                <input className="form-control" id="fishId" name="FishId" value={this.state.FishId} />
-                                <label className="form-group" style={{ width: "600px" }}> Вид риби </label>
-                                <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
-                                <label className="form-group" style={{ width: "600px" }}> Стать </label>
-                                <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
-                                <label className="form-group" style={{ width: "600px" }}>  День народження </label>
-                                <input className="form-control" id="dateOfBirth" type="datetime-local" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
-                                <label className="form-group" style={{ width: "600px" }}>  Басейн зараз </label>
-                                <input className="form-control" id="poolNowId" name="PoolNowId" value={this.state.PoolNowId} onChange={this.changePoolNowId} />
-                                <label className="form-group" style={{ width: "600px" }}>  Басейн для переносу </label>
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Fish Id")}
+                                    <input className="form-control" id="fishId" name="FishId" value={this.state.FishId} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Kind Of Fish Id")}
+                                    <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Sex")}
+                                    <input className="form-control" id="sex" name="Sex" value={this.state.Sex} onChange={this.changeSex} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Date Of Birth")}
+                                    <input className="form-control" id="dateOfBirth" type="datetime-local" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Pool now")}
+                                    <input className="form-control" id="poolNowId" name="PoolNowId" value={this.state.PoolNowId} onChange={this.changePoolNowId} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Pool for relocation")}Басейн для переносу
                                 <input className="form-control" id="relocationPoolId" name="RelocationPoolId" value={this.state.RelocationPoolId} onChange={this.changeRelocationPoolId} />
-                                <label className="form-group" style={{ width: "600px" }}>  Вага </label>
-                                <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
-                                <label className="form-group" style={{ width: "600px" }}>  Зрілість </label>
-                                <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
-                                <label className="form-group" style={{ width: "600px" }}>  Стан </label>
-                                <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Weight")}
+                                    <input className="form-control" id="weight" name="Weight" value={this.state.Weight} onChange={this.changeWeight} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Adulthood")}
+                                    <input className="form-control" id="adulthood" name="Adulthood" value={this.state.Adulthood} onChange={this.changeAdulthood} />
+                                </label>
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("State")}
+                                    <input className="form-control" id="state" name="State" value={this.state.State} onChange={this.changeState} />
+                                </label>
                             </div>
                             <button
 
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Змінити
-                    </button>
+                            >{SetWord("Edit")}
+                            </button>
                         </form>
                     </div>
                 </div>

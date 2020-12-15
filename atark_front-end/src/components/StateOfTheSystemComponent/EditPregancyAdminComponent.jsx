@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class EditStateOfTheSystemAdmin extends Component {
 
@@ -97,19 +98,19 @@ class EditStateOfTheSystemAdmin extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Вагітність</h2>
+                        <h2> {SetWord("Edit State Of The System")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> StateOfTheSystemId
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("State Of The System Id")}
                                     <input className="form-control" id="StateOfTheSystemId" name="StateOfTheSystemId" value={this.state.StateOfTheSystemId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> Temperature
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Temperature")}
                                     <input className="form-control" id="Temperature" name="Temperature" value={this.state.Temperature} onChange={this.changeTemperature} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> OxygenLevel
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Oxygen Level")}
                                     <input className="form-control" id="OxygenLevel" name="OxygenLevel" value={this.state.OxygenLevel} onChange={this.changeOxygenLevel} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> DateOfLastCheck
+                                <label className="form-group" style={{ width: "600px" }}>  {SetWord("Date Of Last Check")}
                                     <input className="form-control" type='datetime-local' id="DateOfLastCheck" name="DateOfLastCheck" value={this.state.DateOfLastCheck} onChange={this.changeDateOfLastCheck} />
                                 </label>
                             </div>
@@ -117,8 +118,8 @@ class EditStateOfTheSystemAdmin extends Component {
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Змінити
-                    </button>
+                            > {SetWord("Edit")}
+                            </button>
                         </form>
                     </div>
                 </div>

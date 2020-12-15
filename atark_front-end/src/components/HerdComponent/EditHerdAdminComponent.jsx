@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
+import { SetWord } from '../translations/Translate';
 
 class EditHerdAdmin extends Component {
 
@@ -113,36 +114,36 @@ class EditHerdAdmin extends Component {
                 </div>
                 <div>
                     <div style={{ width: "600px", height: "480px", marginLeft: "20%", marginTop: "10%" }}>
-                        <h2>Змінити Стадо</h2>
+                        <h2>{SetWord("Edit Herd")}</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="form-group" style={{ width: "600px" }}> Id
-                                    <input className="form-control" id="HerdId" name="HerdId" value={this.state.HerdId}/>
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Herd Id")}
+                                    <input className="form-control" id="HerdId" name="HerdId" value={this.state.HerdId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> вид риби
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Kind Of Fish Id")}
                                     <input className="form-control" id="kindOfFishId" name="KindOfFishId" value={this.state.KindOfFishId} onChange={this.changeKindOfFishId} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> дата народження
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Date Of Birth")}
                                     <input className="form-control" type='datetime-local' id="dateOfBirth" name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.changeDateOfBirth} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> PoolIdNow
-                                    <input className="form-control" id="PoolIdNow" name="PoolIdNow" value={this.state.PoolIdNow} onChange={this.changePoolIdNow}/>
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Pool now")}
+                                    <input className="form-control" id="PoolIdNow" name="PoolIdNow" value={this.state.PoolIdNow} onChange={this.changePoolIdNow} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> AverageWeightOfAnIndividual
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Average Weight Of An Individual")}
                                     <input className="form-control" id="AverageWeightOfAnIndividual" name="AverageWeightOfAnIndividual" value={this.state.AverageWeightOfAnIndividual} onChange={this.changeAverageWeightOfAnIndividual} />
                                 </label>
-                                <label className="form-group" style={{ width: "600px" }}> Quantity
+                                <label className="form-group" style={{ width: "600px" }}> {SetWord("Quantity")}
                                     <input className="form-control" id="Quantity" name="Quantity" value={this.state.Quantity} onChange={this.changeQuantity} />
                                 </label>
-                                
+
                             </div>
-                            
+
                             <button
                                 type="submit"
                                 className="btn btn-primary"
                                 style={{ width: '100%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}
-                            > Змінити
-                    </button>
+                            > {SetWord("Edit")}
+                            </button>
                         </form>
                     </div>
                 </div>
