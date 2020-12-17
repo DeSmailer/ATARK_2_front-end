@@ -40,6 +40,7 @@ import EditPregnancyAdmin from './PregnancyComponent/EditPregancyAdminComponent'
 import EditStateOfTheSystemAdmin from './StateOfTheSystemComponent/EditPregancyAdminComponent'
 import AddKindOfFish from './KindOfFishComponent/AddKindOfFishComponent'
 import EditKindOfFish from './KindOfFishComponent/EditKindOfFishComponent'
+import MOTI_Lab4 from './MOTI/MOTI_Lab4Component'
 
 
 
@@ -110,8 +111,9 @@ class Main extends Component {
                     <Route path="/StateOfTheSystemListAdmin" component={StateOfTheSystemListAdmin}></Route>
                     <Route path="/EditStateOfTheSystemAdmin/:stateOfTheSystemId" component={EditStateOfTheSystemAdmin}></Route>
 
-                    
-                    
+                    {/* MOTI */}
+                    <Route path="/MOTI_Lab4" component={MOTI_Lab4}></Route>
+
                     <Redirect to="/signIn" component={LogIn}></Redirect>
                 </Switch>
             </div>
@@ -120,4 +122,3 @@ class Main extends Component {
 }
 
 export default Main
-// export default (connect(mapStateToProps, mapDispatchToProps)(Main));

@@ -86,6 +86,7 @@ function Tabssss1() {
         <Tab label={SetWord("Pregnancy")} href="/PregancyListAdmin" {...a11yProps(7)} />
         <Tab label={SetWord("State Of CWSI")} href="/StateOfTheSystemListAdmin" {...a11yProps(8)} />
         <Tab label={SetWord("Profile")} href="/signIn" {...a11yProps(9)} />
+        <Tab label="MOTI_Lab4" href="/MOTI_Lab4" {...a11yProps(14)} />
       </div>
     )
   }

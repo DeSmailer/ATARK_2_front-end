@@ -79,5 +79,7 @@
     "Temperature": "Temperature",
     "Oxygen Level": "Oxygen Level",
     "Date Of Last Check": "Date Of Last Check",
+    "Export": "Export",
+    "Import": "Import",
     " ": " "
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { baseUrl } from '../baseUrl';
 import { Button } from 'reactstrap';
 import { SetWord } from '../translations/Translate';
+import moment from "moment";
 class LogIn extends Component {
 
     constructor(props) {
@@ -19,6 +20,9 @@ class LogIn extends Component {
         this.refresh = this.refresh.bind(this);
         this.setLanguageUA = this.setLanguageUA.bind(this);
         this.setLanguageEN = this.setLanguageEN.bind(this);
+        this.exportExcel = this.exportExcel.bind(this);
+        this.importExcel = this.importExcel.bind(this);
+
     }
     addUser(Mail, UserName/*, Password*/) {
         console.log(Mail);
@@ -95,6 +99,47 @@ class LogIn extends Component {
         document.cookie = "lang=EN";
         alert("EN");
     }
+    exportExcel() {
+        fetch(baseUrl + "ExportImport/ExportToExcel", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json; charset=UTF-8'
+            },
+            credentials: 'same-origin'
+        })
+        .then(response => response.blob())
+            .then(blob => {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = "db" + moment().format("DD-MM-YYYY hh:mm:ss") + ".xlsx";
+                document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
+                a.click();
+                a.remove();  //afterwards we remove the element again
+            });
+
+    }
+    importExcel() {
+        fetch(baseUrl + "ExportImport/Import", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json; charset=UTF-8'
+            },
+            credentials: 'same-origin'
+        })
+            .then(response => response.json())
+            .then(
+                (response) => {
+                    console.log(response);
+                    alert('Ok');
+                },
+                (error) => {
+                    console.log(' ', error);
+                }
+            )
+    }
     render() {
         return (
             <div className="container">
@@ -129,6 +174,17 @@ class LogIn extends Component {
                         style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
                         EN
             </Button>
+                </div>
+                <div style={{ width: "600px", marginLeft: "20%", marginTop: "3%" }}>
+                    <h2>{SetWord("Export")}-{SetWord("Import")}</h2>
+                    <Button onClick={this.exportExcel} className="btn btn-primary"
+                        style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+                        {SetWord("Export")}
+                    </Button>
+                    <Button onClick={this.importExcel} className="btn btn-primary"
+                        style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+                        {SetWord("Import")}
+                    </Button>
                 </div>
             </div>
         );
