@@ -65,7 +65,7 @@ class PoolListByPoolId extends Component {
           </Button>
         </Link>
         <Button onClick={this.deleteSucces} className="btn btn-primary"
-          style={{ width: '10%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
+          style={{ width: '15%', backgroundColor: '#87ceeb', marginBottom: "20px", margin: "5px" }}>
           {SetWord("Remove Pool")}
         </Button>
       </div >

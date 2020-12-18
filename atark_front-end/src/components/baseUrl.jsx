@@ -1,4 +1,5 @@
 export const baseUrl = 'https://localhost:5001/api/';
+// export const baseUrl = 'https://24c1bc285c30.ngrok.io/api/';
 export const getCookie = (name) => {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');

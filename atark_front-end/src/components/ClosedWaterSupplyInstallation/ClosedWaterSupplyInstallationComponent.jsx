@@ -15,7 +15,7 @@ class ClosedWaterSupplyInstallationListByOrganizationId extends Component {
       columns: [
         { field: 'closedWaterSupplyInstallationId', headerName: 'ClosedWaterSupplyInstallationId', width: 160 },
         { field: 'organizationId', headerName: 'OrganizationId', width: 160 },
-        { field: 'location', headerName: 'Location', width: 160 }
+        { field: 'location', headerName: 'Location', width: 400 }
       ],
       rows: [],
       currentRow: {

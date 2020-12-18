@@ -16,7 +16,7 @@ class ClosedWaterSupplyInstallationListAdmin extends Component {
         { field: 'closedWaterSupplyInstallationId', headerName: 'ClosedWaterSupplyInstallationId', width: 160 },
         { field: 'organizationId', headerName: 'OrganizationId', width: 160 },
         { field: 'stateOfTheSystemId', headerName: 'StateOfTheSystemId', width: 160 },
-        { field: 'location', headerName: 'Location', width: 160 }
+        { field: 'location', headerName: 'Location', width: 400 }
       ],
       rows: [],
       currentRow: {
